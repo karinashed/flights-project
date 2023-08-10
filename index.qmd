@@ -1,0 +1,20 @@
+---
+title: "WELCOME!"
+---
+
+Bulk flight data from [Icarus](https://icarus.flights/) (ADSB-Exchange) contains each plane's unique ICAO, 
+but is missing the "good stuff" you need when looking for story leads: the tail number, which indicates where a plane's registered, 
+and the type of plane, which can be used to determine if it's used as a commercial, military or private plane.  
+
+For this project I took a large set of ADBS-Exchange flight data (one month of flights from Moscow) and used info from [RadarBox](https://www.radarbox.com/) to enrich it with this valuable information. 
+
+I wrote the code so the following steps, which are broken down in the Notebooks on this page, can be replicated with any and all bulk flight data pulled from Icarus in the future.
+
+- Clean up the original data 
+- Use the ICAO of each plane to scrape the tail number and plane make/model from RadarBox 
+- Use the tail number to determine where each plane is registered
+- Take each plane make/model and ask ChatGPT if it's typically a commercial, military or private plane
+- Pull the enhanced data together to answer questions like where are the private planes registered or where did the military planes fly
+
+Lastly, I used DataTables to turn the enhanced data into searchable tables to make it easier to query the data and find intersting leads. 
+

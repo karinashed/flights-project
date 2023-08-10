@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: docs
+
+resources:
+- images/*
+
+format:
+  html:
+    toc: true
+    linkcolor: red
+    theme: lux
+
+website:
+  title: "Enriching ADSB Flight Data"
+  sidebar:
+    style: "docked"
+    contents:
+      - href: index.qmd
+        text: Home
+      - section: "Notebooks"
+        contents:
+          - text: "Clean Original ADSB-Exchange Data"
+            url: clean-original.ipynb
+          - text: "Scrape Radarbox"
+            url: radarbox_scrape.ipynb
+          - text: "Plane Registration Check"
+            url: plane-registration-check.ipynb
+          - text: "Ask ChatGPT"
+            url: chat-gpt.ipynb
+          - text: "Pull it All Together"
+            url: wrap-up.ipynb
+      - section: "Tables"
+        contents:
+          - text: "All planes"
+            url: country_type_table.html
+          - text: "All flights"
+            url: full_flight_table.html
+  page-footer: 
+    border: false
+    background: dark
+    left: >
+      ©2023, Karina Shedrofsky
+    right: 
+      - icon: github
+        href: https://github.com/karinashed/
+      - icon: twitter 
+        href: https://twitter.com/karinashed

@@ -1,0 +1,8440 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detailed Plane Data</title>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    
+    <!-- Include DataTables JavaScript -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+<style>
+        thead input {
+            width: 70%;
+        }
+</style>
+
+</head>
+<body>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>icao</th>
+      <th>tail</th>
+      <th>plane_model</th>
+      <th>reg_country</th>
+      <th>type</th>
+      <th>max_passengers</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>151d9c</td>
+      <td>RA-73116</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d98</td>
+      <td>RA-73112</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151da3</td>
+      <td>RA-73123</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e13</td>
+      <td>RA-73235</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151da2</td>
+      <td>RA-73122</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d9b</td>
+      <td>RA-73115</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e55</td>
+      <td>RA-73301</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e14</td>
+      <td>RA-73236</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d9e</td>
+      <td>RA-73118</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d88</td>
+      <td>RA-73096</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151da5</td>
+      <td>RA-73125</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151da4</td>
+      <td>RA-73124</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d89</td>
+      <td>RA-73097</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e15</td>
+      <td>RA-73237</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151da8</td>
+      <td>RA-73128</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e54</td>
+      <td>RA-73300</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d85</td>
+      <td>RA-73093</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d86</td>
+      <td>RA-73094</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e1a</td>
+      <td>RA-73242</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151da7</td>
+      <td>RA-73127</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d9f</td>
+      <td>RA-73119</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151da6</td>
+      <td>RA-73126</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d87</td>
+      <td>RA-73095</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151da1</td>
+      <td>RA-73121</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d9a</td>
+      <td>RA-73114</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e51</td>
+      <td>RA-73297</td>
+      <td>Boeing 737-8LJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>15206f</td>
+      <td>RA-73839</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>151fe9</td>
+      <td>RA-73705</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>15204a</td>
+      <td>RA-73802</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>152070</td>
+      <td>RA-73840</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>151fe8</td>
+      <td>RA-73704</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>152049</td>
+      <td>RA-73801</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>151fe7</td>
+      <td>RA-73703</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>15206c</td>
+      <td>RA-73836</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>151d44</td>
+      <td>RA-73028</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>152048</td>
+      <td>RA-73800</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>151d43</td>
+      <td>RA-73027</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>15206e</td>
+      <td>RA-73838</td>
+      <td>Airbus A321-251NX</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>4bc841</td>
+      <td>TC-RBA</td>
+      <td>Airbus A321-251NX</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>4bc847</td>
+      <td>TC-RBG</td>
+      <td>Airbus A321-251NX</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>4bc853</td>
+      <td>TC-RBS</td>
+      <td>Airbus A321-251NX</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>4bc842</td>
+      <td>TC-RBB</td>
+      <td>Airbus A321-251NX</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>151d77</td>
+      <td>RA-73079</td>
+      <td>Boeing 767-3Y0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>151d78</td>
+      <td>RA-73080</td>
+      <td>Boeing 767-3Y0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>14f110</td>
+      <td>RA-61712</td>
+      <td>Antonov An-148-100EA</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>14f116</td>
+      <td>RA-61718</td>
+      <td>Antonov An-148-100EA</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>14f117</td>
+      <td>RA-61719</td>
+      <td>Antonov An-148-100EA</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>151e32</td>
+      <td>RA-73266</td>
+      <td>Boeing 737-83N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151ee7</td>
+      <td>RA-73447</td>
+      <td>Boeing 737-83N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151ec1</td>
+      <td>RA-73409</td>
+      <td>Boeing 737-83N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151f11</td>
+      <td>RA-73489</td>
+      <td>Boeing 737-83N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151ec0</td>
+      <td>RA-73408</td>
+      <td>Boeing 737-83N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>155be6</td>
+      <td>RA-89062</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c1a</td>
+      <td>RA-89114</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bd0</td>
+      <td>RA-89040</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c20</td>
+      <td>RA-89120</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bbf</td>
+      <td>RA-89023</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c2f</td>
+      <td>RA-89135</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c37</td>
+      <td>RA-89143</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c60</td>
+      <td>RA-89184</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c21</td>
+      <td>RA-89121</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c0f</td>
+      <td>RA-89103</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bd1</td>
+      <td>RA-89041</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be7</td>
+      <td>RA-89063</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c10</td>
+      <td>RA-89104</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c2a</td>
+      <td>RA-89130</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bc1</td>
+      <td>RA-89025</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be0</td>
+      <td>RA-89056</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c26</td>
+      <td>RA-89126</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c31</td>
+      <td>RA-89137</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bba</td>
+      <td>RA-89018</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c27</td>
+      <td>RA-89127</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bd7</td>
+      <td>RA-89047</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c1f</td>
+      <td>RA-89119</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be1</td>
+      <td>RA-89057</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c4a</td>
+      <td>RA-89162</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bc0</td>
+      <td>RA-89024</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c11</td>
+      <td>RA-89105</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c46</td>
+      <td>RA-89158</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c28</td>
+      <td>RA-89128</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c2c</td>
+      <td>RA-89132</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bdc</td>
+      <td>RA-89052</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c12</td>
+      <td>RA-89106</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c32</td>
+      <td>RA-89138</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bb9</td>
+      <td>RA-89017</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c65</td>
+      <td>RA-89189</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c24</td>
+      <td>RA-89124</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c0c</td>
+      <td>RA-89100</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bd4</td>
+      <td>RA-89044</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c1e</td>
+      <td>RA-89118</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be2</td>
+      <td>RA-89058</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be3</td>
+      <td>RA-89059</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c1d</td>
+      <td>RA-89117</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c0b</td>
+      <td>RA-89099</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c25</td>
+      <td>RA-89125</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c64</td>
+      <td>RA-89188</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bbc</td>
+      <td>RA-89020</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c33</td>
+      <td>RA-89139</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c44</td>
+      <td>RA-89156</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bdb</td>
+      <td>RA-89051</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c2b</td>
+      <td>RA-89131</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c29</td>
+      <td>RA-89129</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bc2</td>
+      <td>RA-89026</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c3d</td>
+      <td>RA-89149</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c34</td>
+      <td>RA-89140</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c63</td>
+      <td>RA-89187</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c22</td>
+      <td>RA-89122</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c5b</td>
+      <td>RA-89179</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c0e</td>
+      <td>RA-89102</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c1c</td>
+      <td>RA-89116</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c18</td>
+      <td>RA-89112</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be4</td>
+      <td>RA-89060</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c38</td>
+      <td>RA-89144</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c2e</td>
+      <td>RA-89134</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be8</td>
+      <td>RA-89064</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c14</td>
+      <td>RA-89108</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c43</td>
+      <td>RA-89155</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c42</td>
+      <td>RA-89154</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c15</td>
+      <td>RA-89109</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be9</td>
+      <td>RA-89065</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c2d</td>
+      <td>RA-89133</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c39</td>
+      <td>RA-89145</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155be5</td>
+      <td>RA-89061</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c19</td>
+      <td>RA-89113</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bd3</td>
+      <td>RA-89043</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c0d</td>
+      <td>RA-89101</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c5c</td>
+      <td>RA-89180</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c23</td>
+      <td>RA-89123</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bc8</td>
+      <td>RA-89032</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c62</td>
+      <td>RA-89186</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c35</td>
+      <td>RA-89141</td>
+      <td>Sukhoi SuperJet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>151e8a</td>
+      <td>RA-73354</td>
+      <td>Boeing 757-223SF</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>239</td>
+    </tr>
+    <tr>
+      <td>151e87</td>
+      <td>RA-73351</td>
+      <td>Boeing 757-223SF</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>239</td>
+    </tr>
+    <tr>
+      <td>151e88</td>
+      <td>RA-73352</td>
+      <td>Boeing 757-223SF</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>239</td>
+    </tr>
+    <tr>
+      <td>151e8b</td>
+      <td>RA-73355</td>
+      <td>Boeing 757-223SF</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>239</td>
+    </tr>
+    <tr>
+      <td>15203a</td>
+      <td>RA-73786</td>
+      <td>Airbus A330-343E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>152037</td>
+      <td>RA-73783</td>
+      <td>Airbus A330-343E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>151dc7</td>
+      <td>RA-73159</td>
+      <td>Airbus A330-343E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>15203d</td>
+      <td>RA-73789</td>
+      <td>Airbus A330-343E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>152038</td>
+      <td>RA-73784</td>
+      <td>Airbus A330-343E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>15203c</td>
+      <td>RA-73788</td>
+      <td>Airbus A330-343E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>15203b</td>
+      <td>RA-73787</td>
+      <td>Airbus A330-343E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>152039</td>
+      <td>RA-73785</td>
+      <td>Airbus A330-343E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>4ba9cd</td>
+      <td>TC-JNM</td>
+      <td>Airbus A330-343E</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>78122f</td>
+      <td>B-8862</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781094</td>
+      <td>B-8678</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>78139f</td>
+      <td>B-1096</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781364</td>
+      <td>B-1065</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>7809ef</td>
+      <td>B-5923</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781335</td>
+      <td>B-1041</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>78147a</td>
+      <td>B-300U</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781230</td>
+      <td>B-8863</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781479</td>
+      <td>B-300V</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781463</td>
+      <td>B-300Q</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>780b69</td>
+      <td>B-5929</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781540</td>
+      <td>B-303D</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>780ef8</td>
+      <td>B-8287</td>
+      <td>Airbus A330-343E</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>151e65</td>
+      <td>RA-73317</td>
+      <td>Boeing 737-82R</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e64</td>
+      <td>RA-73316</td>
+      <td>Boeing 737-82R</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e61</td>
+      <td>RA-73313</td>
+      <td>Boeing 737-82R</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>510115</td>
+      <td>EW-527PA</td>
+      <td>Boeing 737-82R</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>683298</td>
+      <td>UP-B3732</td>
+      <td>Boeing 737-82R</td>
+      <td>Kazakhstan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>683296</td>
+      <td>UP-B3730</td>
+      <td>Boeing 737-82R</td>
+      <td>Kazakhstan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>683297</td>
+      <td>UP-B3731</td>
+      <td>Boeing 737-82R</td>
+      <td>Kazakhstan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e73</td>
+      <td>RA-73331</td>
+      <td>Boeing 777-21HER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>151e72</td>
+      <td>RA-73330</td>
+      <td>Boeing 777-21HER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>151e71</td>
+      <td>RA-73329</td>
+      <td>Boeing 777-21HER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>1407c6</td>
+      <td>RA-01990</td>
+      <td>AgustaWestland AW139</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>141e18</td>
+      <td>RA-07704</td>
+      <td>AgustaWestland AW139</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>141e19</td>
+      <td>RA-07705</td>
+      <td>AgustaWestland AW139</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>14069e</td>
+      <td>RA-01694</td>
+      <td>AgustaWestland AW139</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>141e16</td>
+      <td>RA-07702</td>
+      <td>AgustaWestland AW139</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>1407cd</td>
+      <td>RA-01997</td>
+      <td>AgustaWestland AW139</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>141e17</td>
+      <td>RA-07703</td>
+      <td>AgustaWestland AW139</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151d8e</td>
+      <td>RA-73102</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151df8</td>
+      <td>RA-73208</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e5d</td>
+      <td>RA-73309</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e0c</td>
+      <td>RA-73228</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e1e</td>
+      <td>RA-73246</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d94</td>
+      <td>RA-73108</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e12</td>
+      <td>RA-73234</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d95</td>
+      <td>RA-73109</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e1d</td>
+      <td>RA-73245</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e09</td>
+      <td>RA-73225</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e0b</td>
+      <td>RA-73227</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d8d</td>
+      <td>RA-73101</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151dfb</td>
+      <td>RA-73211</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d92</td>
+      <td>RA-73106</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151da9</td>
+      <td>RA-73129</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d8c</td>
+      <td>RA-73100</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e22</td>
+      <td>RA-73250</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e5b</td>
+      <td>RA-73307</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e59</td>
+      <td>RA-73305</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e0e</td>
+      <td>RA-73230</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e1c</td>
+      <td>RA-73244</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e18</td>
+      <td>RA-73240</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e19</td>
+      <td>RA-73241</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e1b</td>
+      <td>RA-73243</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e0d</td>
+      <td>RA-73229</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e58</td>
+      <td>RA-73304</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e5c</td>
+      <td>RA-73308</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d8b</td>
+      <td>RA-73099</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d93</td>
+      <td>RA-73107</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e16</td>
+      <td>RA-73238</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e57</td>
+      <td>RA-73303</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d90</td>
+      <td>RA-73104</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e20</td>
+      <td>RA-73248</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d8a</td>
+      <td>RA-73098</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e21</td>
+      <td>RA-73249</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e5a</td>
+      <td>RA-73306</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e0f</td>
+      <td>RA-73231</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e56</td>
+      <td>RA-73302</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e17</td>
+      <td>RA-73239</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e0a</td>
+      <td>RA-73226</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e67</td>
+      <td>RA-73319</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e10</td>
+      <td>RA-73232</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d96</td>
+      <td>RA-73110</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d97</td>
+      <td>RA-73111</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d8f</td>
+      <td>RA-73103</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151da0</td>
+      <td>RA-73120</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e1f</td>
+      <td>RA-73247</td>
+      <td>Boeing 737-800WL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>51009c</td>
+      <td>EW-457PA</td>
+      <td>Boeing 737-800WL</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>51009b</td>
+      <td>EW-456PA</td>
+      <td>Boeing 737-800WL</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>0101b6</td>
+      <td>SU-GEF</td>
+      <td>Boeing 737-800WL</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>728677</td>
+      <td>YI-ASW</td>
+      <td>Boeing 737-800WL</td>
+      <td>Iraq</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>728676</td>
+      <td>YI-ASV</td>
+      <td>Boeing 737-800WL</td>
+      <td>Iraq</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151ebf</td>
+      <td>RA-73407</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dd4</td>
+      <td>RA-73172</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ed0</td>
+      <td>RA-73424</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152016</td>
+      <td>RA-73750</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152020</td>
+      <td>RA-73760</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dd8</td>
+      <td>RA-73176</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ddc</td>
+      <td>RA-73180</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15204f</td>
+      <td>RA-73807</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15201a</td>
+      <td>RA-73754</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ddb</td>
+      <td>RA-73179</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152021</td>
+      <td>RA-73761</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151fdc</td>
+      <td>RA-73692</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152060</td>
+      <td>RA-73824</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dd5</td>
+      <td>RA-73173</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15202f</td>
+      <td>RA-73775</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152067</td>
+      <td>RA-73831</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152030</td>
+      <td>RA-73776</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152026</td>
+      <td>RA-73766</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15200a</td>
+      <td>RA-73738</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dde</td>
+      <td>RA-73182</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15202a</td>
+      <td>RA-73770</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dfe</td>
+      <td>RA-73214</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dd2</td>
+      <td>RA-73170</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152051</td>
+      <td>RA-73809</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152010</td>
+      <td>RA-73744</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152011</td>
+      <td>RA-73745</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152050</td>
+      <td>RA-73808</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151eba</td>
+      <td>RA-73402</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15206a</td>
+      <td>RA-73834</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15201f</td>
+      <td>RA-73759</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152027</td>
+      <td>RA-73767</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152031</td>
+      <td>RA-73777</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152066</td>
+      <td>RA-73830</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15201e</td>
+      <td>RA-73758</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dea</td>
+      <td>RA-73194</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15204b</td>
+      <td>RA-73803</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152024</td>
+      <td>RA-73764</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152032</td>
+      <td>RA-73778</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152065</td>
+      <td>RA-73829</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152012</td>
+      <td>RA-73746</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dd0</td>
+      <td>RA-73168</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ebb</td>
+      <td>RA-73403</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152028</td>
+      <td>RA-73768</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15202c</td>
+      <td>RA-73772</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152069</td>
+      <td>RA-73833</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15206b</td>
+      <td>RA-73835</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ecd</td>
+      <td>RA-73421</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152068</td>
+      <td>RA-73832</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15202b</td>
+      <td>RA-73771</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152029</td>
+      <td>RA-73769</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ebc</td>
+      <td>RA-73404</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dd1</td>
+      <td>RA-73169</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152013</td>
+      <td>RA-73747</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152064</td>
+      <td>RA-73828</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152033</td>
+      <td>RA-73779</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152025</td>
+      <td>RA-73765</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151e01</td>
+      <td>RA-73217</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ddf</td>
+      <td>RA-73183</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15204c</td>
+      <td>RA-73804</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15201d</td>
+      <td>RA-73757</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152014</td>
+      <td>RA-73748</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ebd</td>
+      <td>RA-73405</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15202e</td>
+      <td>RA-73774</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151dcf</td>
+      <td>RA-73167</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ecb</td>
+      <td>RA-73419</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15201c</td>
+      <td>RA-73756</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152018</td>
+      <td>RA-73752</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15204d</td>
+      <td>RA-73805</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15205b</td>
+      <td>RA-73819</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152022</td>
+      <td>RA-73762</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152034</td>
+      <td>RA-73780</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152063</td>
+      <td>RA-73827</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152062</td>
+      <td>RA-73826</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152035</td>
+      <td>RA-73781</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152023</td>
+      <td>RA-73763</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151df7</td>
+      <td>RA-73207</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152019</td>
+      <td>RA-73753</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15201b</td>
+      <td>RA-73755</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ecc</td>
+      <td>RA-73420</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>15202d</td>
+      <td>RA-73773</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>151ebe</td>
+      <td>RA-73406</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152054</td>
+      <td>RA-73812</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>152015</td>
+      <td>RA-73749</td>
+      <td>Airbus A320-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>896411</td>
+      <td>A6-AOE</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>8963ff</td>
+      <td>A6-AOC</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>8965fa</td>
+      <td>A6-AUG</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>8965ff</td>
+      <td>A6-ANC</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>896401</td>
+      <td>A6-AOB</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>896601</td>
+      <td>A6-ANE</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>896586</td>
+      <td>A6-AUB</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>8962d1</td>
+      <td>A6-ANB</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>896585</td>
+      <td>A6-AUA</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>89642d</td>
+      <td>A6-AOJ</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>89642e</td>
+      <td>A6-AOI</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>896434</td>
+      <td>A6-AOK</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>896413</td>
+      <td>A6-AOH</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>8963c9</td>
+      <td>A6-ANY</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>8965ee</td>
+      <td>A6-AUE</td>
+      <td>Airbus A320-214</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>4b906c</td>
+      <td>TC-DCL</td>
+      <td>Airbus A320-214</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>4b9065</td>
+      <td>TC-DCE</td>
+      <td>Airbus A320-214</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>4b906d</td>
+      <td>TC-DCM</td>
+      <td>Airbus A320-214</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>507c41</td>
+      <td>UK32018</td>
+      <td>Airbus A320-214</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>507c3a</td>
+      <td>UK32011</td>
+      <td>Airbus A320-214</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>507c61</td>
+      <td>UK32031</td>
+      <td>Airbus A320-214</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>507c3f</td>
+      <td>UK32016</td>
+      <td>Airbus A320-214</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>507c3e</td>
+      <td>UK32015</td>
+      <td>Airbus A320-214</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>507c3d</td>
+      <td>UK32014</td>
+      <td>Airbus A320-214</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>507c3b</td>
+      <td>UK32012</td>
+      <td>Airbus A320-214</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>600003</td>
+      <td>EK-YRC</td>
+      <td>Airbus A320-214</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>600001</td>
+      <td>EK-YRB</td>
+      <td>Airbus A320-214</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>60111c</td>
+      <td>EX-32014</td>
+      <td>Airbus A320-214</td>
+      <td>Kyrgyzstan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>600853</td>
+      <td>4K-AZ83</td>
+      <td>Airbus A320-214</td>
+      <td>Azerbaijan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>60084d</td>
+      <td>4K-AZ77</td>
+      <td>Airbus A320-214</td>
+      <td>Azerbaijan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>60084f</td>
+      <td>4K-AZ79</td>
+      <td>Airbus A320-214</td>
+      <td>Azerbaijan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>600850</td>
+      <td>4K-AZ80</td>
+      <td>Airbus A320-214</td>
+      <td>Azerbaijan</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>02a1a7</td>
+      <td>TS-INH</td>
+      <td>Airbus A320-214</td>
+      <td>Tunisia</td>
+      <td>COMMERCIAL</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>142581</td>
+      <td>RA-09601</td>
+      <td>Dassault Falcon 7X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>142587</td>
+      <td>RA-09607</td>
+      <td>Dassault Falcon 7X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>14232d</td>
+      <td>RA-09005</td>
+      <td>Dassault Falcon 7X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>142592</td>
+      <td>RA-09618</td>
+      <td>Dassault Falcon 7X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>142584</td>
+      <td>RA-09604</td>
+      <td>Dassault Falcon 7X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>142382</td>
+      <td>RA-09090</td>
+      <td>Dassault Falcon 7X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>142582</td>
+      <td>RA-09602</td>
+      <td>Dassault Falcon 7X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>43be92</td>
+      <td>RA-73153</td>
+      <td>Airbus A350-941</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>43bebd</td>
+      <td>RA-73156</td>
+      <td>Airbus A350-941</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>43beb9</td>
+      <td>RA-73151</td>
+      <td>Airbus A350-941</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>43beb8</td>
+      <td>RA-73152</td>
+      <td>Airbus A350-941</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>43be90</td>
+      <td>RA-73154</td>
+      <td>Airbus A350-941</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>42446c</td>
+      <td>RA-73155</td>
+      <td>Airbus A350-941</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>151e24</td>
+      <td>RA-73252</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d7f</td>
+      <td>RA-73087</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e23</td>
+      <td>RA-73251</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d7d</td>
+      <td>RA-73085</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e60</td>
+      <td>RA-73312</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d7e</td>
+      <td>RA-73086</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e26</td>
+      <td>RA-73254</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d7c</td>
+      <td>RA-73084</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e27</td>
+      <td>RA-73255</td>
+      <td>Boeing 737-8AS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>14fa27</td>
+      <td>RA-64039</td>
+      <td>Tupolev Tu-204-300</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>14fa2c</td>
+      <td>RA-64044</td>
+      <td>Tupolev Tu-204-300</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>142329</td>
+      <td>RA-09001</td>
+      <td>Dassault Falcon 900B</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>142328</td>
+      <td>RA-09000</td>
+      <td>Dassault Falcon 900B</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>15537a</td>
+      <td>RA-86906</td>
+      <td>Ilyushin Il-76MD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>1533f3</td>
+      <td>RA-78835</td>
+      <td>Ilyushin Il-76MD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152000</td>
+      <td>RA-73728</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152041</td>
+      <td>RA-73793</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ff9</td>
+      <td>RA-73721</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ffb</td>
+      <td>RA-73723</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ec7</td>
+      <td>RA-73415</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151fed</td>
+      <td>RA-73709</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ff5</td>
+      <td>RA-73717</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151fee</td>
+      <td>RA-73710</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ec6</td>
+      <td>RA-73414</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ffc</td>
+      <td>RA-73724</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ff8</td>
+      <td>RA-73720</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152040</td>
+      <td>RA-73792</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152001</td>
+      <td>RA-73729</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151dce</td>
+      <td>RA-73166</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151fdd</td>
+      <td>RA-73693</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151feb</td>
+      <td>RA-73707</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151dcb</td>
+      <td>RA-73163</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151dc9</td>
+      <td>RA-73161</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ffd</td>
+      <td>RA-73725</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ffe</td>
+      <td>RA-73726</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151dc8</td>
+      <td>RA-73160</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151dcc</td>
+      <td>RA-73164</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ff2</td>
+      <td>RA-73714</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151fec</td>
+      <td>RA-73708</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151edc</td>
+      <td>RA-73436</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151fff</td>
+      <td>RA-73727</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152044</td>
+      <td>RA-73796</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151f12</td>
+      <td>RA-73490</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151fea</td>
+      <td>RA-73706</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ff0</td>
+      <td>RA-73712</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152043</td>
+      <td>RA-73795</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ff7</td>
+      <td>RA-73719</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ede</td>
+      <td>RA-73438</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151dda</td>
+      <td>RA-73178</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ec5</td>
+      <td>RA-73413</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ff6</td>
+      <td>RA-73718</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151edd</td>
+      <td>RA-73437</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ec8</td>
+      <td>RA-73416</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152042</td>
+      <td>RA-73794</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151ffa</td>
+      <td>RA-73722</td>
+      <td>Airbus A321-211</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151fb8</td>
+      <td>RA-73656</td>
+      <td>Boeing 737-8GJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151de8</td>
+      <td>RA-73192</td>
+      <td>Boeing 737-8GJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151ec3</td>
+      <td>RA-73411</td>
+      <td>Boeing 737-8GJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151ec2</td>
+      <td>RA-73410</td>
+      <td>Boeing 737-8GJ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>515313</td>
+      <td>EY-787</td>
+      <td>Boeing 737-8GJ</td>
+      <td>Tajikistan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>152057</td>
+      <td>RA-73815</td>
+      <td>Airbus A319-112</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151de2</td>
+      <td>RA-73186</td>
+      <td>Airbus A319-112</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151dee</td>
+      <td>RA-73198</td>
+      <td>Airbus A319-112</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151e00</td>
+      <td>RA-73216</td>
+      <td>Airbus A319-112</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>152053</td>
+      <td>RA-73811</td>
+      <td>Airbus A319-112</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>152058</td>
+      <td>RA-73816</td>
+      <td>Airbus A319-112</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>600004</td>
+      <td>EK-FOA</td>
+      <td>Airbus A319-112</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151fbc</td>
+      <td>RA-73660</td>
+      <td>Boeing 737-86N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fb5</td>
+      <td>RA-73653</td>
+      <td>Boeing 737-86N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e2d</td>
+      <td>RA-73261</td>
+      <td>Boeing 737-86N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e30</td>
+      <td>RA-73264</td>
+      <td>Boeing 737-86N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fb6</td>
+      <td>RA-73654</td>
+      <td>Boeing 737-86N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e31</td>
+      <td>RA-73265</td>
+      <td>Boeing 737-86N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>152061</td>
+      <td>RA-73825</td>
+      <td>Airbus A320-212</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>73054a</td>
+      <td>EP-AJJ</td>
+      <td>Airbus A320-212</td>
+      <td>Iran</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>778827</td>
+      <td>YK-BAG</td>
+      <td>Airbus A320-212</td>
+      <td>Syria</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>151f17</td>
+      <td>RA-73495</td>
+      <td>Boeing 737-8EH</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4b8de8</td>
+      <td>TC-COH</td>
+      <td>Boeing 737-8EH</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>150660</td>
+      <td>RA-67168</td>
+      <td>Canadair CL-600-2B16 Challenger 650</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>150661</td>
+      <td>RA-67169</td>
+      <td>Canadair CL-600-2B16 Challenger 650</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>151e3e</td>
+      <td>RA-73278</td>
+      <td>Boeing 777-31HER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>151e3c</td>
+      <td>RA-73276</td>
+      <td>Boeing 777-31HER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>151e3b</td>
+      <td>RA-73275</td>
+      <td>Boeing 777-31HER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>89610d</td>
+      <td>A6-ECF</td>
+      <td>Boeing 777-31HER</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>89611f</td>
+      <td>A6-ECX</td>
+      <td>Boeing 777-31HER</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>151ef0</td>
+      <td>RA-73456</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151eea</td>
+      <td>RA-73450</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef1</td>
+      <td>RA-73457</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ed1</td>
+      <td>RA-73425</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef6</td>
+      <td>RA-73462</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151eda</td>
+      <td>RA-73434</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151efa</td>
+      <td>RA-73466</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ed6</td>
+      <td>RA-73430</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef7</td>
+      <td>RA-73463</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ed8</td>
+      <td>RA-73432</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151eee</td>
+      <td>RA-73454</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef4</td>
+      <td>RA-73460</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef8</td>
+      <td>RA-73464</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef9</td>
+      <td>RA-73465</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ed5</td>
+      <td>RA-73429</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef5</td>
+      <td>RA-73461</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151eed</td>
+      <td>RA-73453</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ed9</td>
+      <td>RA-73433</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151edb</td>
+      <td>RA-73435</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ed2</td>
+      <td>RA-73426</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151eec</td>
+      <td>RA-73452</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef2</td>
+      <td>RA-73458</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151f14</td>
+      <td>RA-73492</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ef3</td>
+      <td>RA-73459</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ee9</td>
+      <td>RA-73449</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151eeb</td>
+      <td>RA-73451</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151ed3</td>
+      <td>RA-73427</td>
+      <td>Airbus A320-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151fdb</td>
+      <td>RA-73691</td>
+      <td>Airbus A320-232</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>15205a</td>
+      <td>RA-73818</td>
+      <td>Airbus A320-232</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>151fde</td>
+      <td>RA-73694</td>
+      <td>Airbus A320-232</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>152055</td>
+      <td>RA-73813</td>
+      <td>Airbus A320-232</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>152059</td>
+      <td>RA-73817</td>
+      <td>Airbus A320-232</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>601115</td>
+      <td>EX-32010</td>
+      <td>Airbus A320-232</td>
+      <td>Kyrgyzstan</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>4c01e7</td>
+      <td>YU-APH</td>
+      <td>Airbus A320-232</td>
+      <td>Serbia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>4c01ee</td>
+      <td>YU-APO</td>
+      <td>Airbus A320-232</td>
+      <td>Serbia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>4c01f2</td>
+      <td>YU-APS</td>
+      <td>Airbus A320-232</td>
+      <td>Serbia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>504e64</td>
+      <td>ER-00006</td>
+      <td>Airbus A320-232</td>
+      <td>Moldova</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>151db5</td>
+      <td>RA-73141</td>
+      <td>Boeing 777-300ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151dc6</td>
+      <td>RA-73158</td>
+      <td>Boeing 777-300ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151fe1</td>
+      <td>RA-73697</td>
+      <td>Boeing 777-300ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151dba</td>
+      <td>RA-73146</td>
+      <td>Boeing 777-300ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151fd9</td>
+      <td>RA-73689</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151e5e</td>
+      <td>RA-73310</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152071</td>
+      <td>RA-73841</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152047</td>
+      <td>RA-73799</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152046</td>
+      <td>RA-73798</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152073</td>
+      <td>RA-73843</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152045</td>
+      <td>RA-73797</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151e37</td>
+      <td>RA-73271</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152072</td>
+      <td>RA-73842</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152075</td>
+      <td>RA-73845</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151fef</td>
+      <td>RA-73711</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>152074</td>
+      <td>RA-73844</td>
+      <td>Airbus A321-231</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa44</td>
+      <td>TC-JRD</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa45</td>
+      <td>TC-JRE</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa53</td>
+      <td>TC-JRS</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa49</td>
+      <td>TC-JRI</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa62</td>
+      <td>TC-JSB</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4b9e44</td>
+      <td>TC-GRD</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa4e</td>
+      <td>TC-JRN</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa4d</td>
+      <td>TC-JRM</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa61</td>
+      <td>TC-JSA</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa41</td>
+      <td>TC-JRA</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>4baa50</td>
+      <td>TC-JRP</td>
+      <td>Airbus A321-231</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>600018</td>
+      <td>EK-AAD</td>
+      <td>Airbus A321-231</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>010250</td>
+      <td>SU-TCL</td>
+      <td>Airbus A321-231</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>010256</td>
+      <td>SU-TCM</td>
+      <td>Airbus A321-231</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>734e6d</td>
+      <td>EP-SSM</td>
+      <td>Airbus A321-231</td>
+      <td>Iran</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>151e90</td>
+      <td>RA-73360</td>
+      <td>Boeing 737-8Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151de4</td>
+      <td>RA-73188</td>
+      <td>Boeing 737-8Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fbd</td>
+      <td>RA-73661</td>
+      <td>Boeing 737-8Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e8f</td>
+      <td>RA-73359</td>
+      <td>Boeing 737-8Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e35</td>
+      <td>RA-73269</td>
+      <td>Boeing 737-8Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fba</td>
+      <td>RA-73658</td>
+      <td>Boeing 737-8Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>1427e0</td>
+      <td>RA-10208</td>
+      <td>Gulfstream Aerospace GV-SP (G550)</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>1427ee</td>
+      <td>RA-10222</td>
+      <td>Gulfstream Aerospace GV-SP (G550)</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151e7d</td>
+      <td>RA-73341</td>
+      <td>Boeing 777-212ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>151e7c</td>
+      <td>RA-73340</td>
+      <td>Boeing 777-212ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>150764</td>
+      <td>RA-67428</td>
+      <td>Cessna 525 CitationJet</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>155c00</td>
+      <td>RA-89088</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bf0</td>
+      <td>RA-89072</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bc7</td>
+      <td>RA-89031</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bda</td>
+      <td>RA-89050</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c06</td>
+      <td>RA-89094</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bf6</td>
+      <td>RA-89078</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bfa</td>
+      <td>RA-89082</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bf7</td>
+      <td>RA-89079</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c07</td>
+      <td>RA-89095</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bef</td>
+      <td>RA-89071</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bf4</td>
+      <td>RA-89076</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bd8</td>
+      <td>RA-89048</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bf8</td>
+      <td>RA-89080</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c08</td>
+      <td>RA-89096</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bf9</td>
+      <td>RA-89081</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bed</td>
+      <td>RA-89069</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bd9</td>
+      <td>RA-89049</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c05</td>
+      <td>RA-89093</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bf5</td>
+      <td>RA-89077</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c6c</td>
+      <td>RA-89196</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bc9</td>
+      <td>RA-89033</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bc5</td>
+      <td>RA-89029</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bde</td>
+      <td>RA-89054</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155beb</td>
+      <td>RA-89067</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bfd</td>
+      <td>RA-89085</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155bcc</td>
+      <td>RA-89036</td>
+      <td>Sukhoi SuperJet 100-95LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>152077</td>
+      <td>RA-73847</td>
+      <td>Boeing 777-35EER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151e7e</td>
+      <td>RA-73342</td>
+      <td>Boeing 777-35EER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151e28</td>
+      <td>RA-73256</td>
+      <td>Boeing 737-86J</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d82</td>
+      <td>RA-73090</td>
+      <td>Boeing 737-8GU</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d83</td>
+      <td>RA-73091</td>
+      <td>Boeing 737-8GU</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d80</td>
+      <td>RA-73088</td>
+      <td>Boeing 737-8GU</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d81</td>
+      <td>RA-73089</td>
+      <td>Boeing 737-8GU</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d6f</td>
+      <td>RA-73071</td>
+      <td>Boeing 757-2Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>151d71</td>
+      <td>RA-73073</td>
+      <td>Boeing 757-2Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>151d70</td>
+      <td>RA-73072</td>
+      <td>Boeing 757-2Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>151d73</td>
+      <td>RA-73075</td>
+      <td>Boeing 757-2Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>151d72</td>
+      <td>RA-73074</td>
+      <td>Boeing 757-2Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>151d75</td>
+      <td>RA-73077</td>
+      <td>Boeing 757-2Q8</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>151e53</td>
+      <td>RA-73299</td>
+      <td>Boeing 737-8FZ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e52</td>
+      <td>RA-73298</td>
+      <td>Boeing 737-8FZ</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151dad</td>
+      <td>RA-73133</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151dae</td>
+      <td>RA-73134</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151db8</td>
+      <td>RA-73144</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151dbc</td>
+      <td>RA-73148</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151db3</td>
+      <td>RA-73139</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151dab</td>
+      <td>RA-73131</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151dbe</td>
+      <td>RA-73150</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151dac</td>
+      <td>RA-73132</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151db2</td>
+      <td>RA-73138</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151db1</td>
+      <td>RA-73137</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151db0</td>
+      <td>RA-73136</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151daa</td>
+      <td>RA-73130</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151daf</td>
+      <td>RA-73135</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151db7</td>
+      <td>RA-73143</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>151db6</td>
+      <td>RA-73142</td>
+      <td>Boeing 777-3M0ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>550</td>
+    </tr>
+    <tr>
+      <td>140ab7</td>
+      <td>RA-02743</td>
+      <td>Embraer 190-100LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>140ab4</td>
+      <td>RA-02740</td>
+      <td>Embraer 190-100LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>152adf</td>
+      <td>RA-76511</td>
+      <td>Ilyushin Il-76TD-90VD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152ad7</td>
+      <td>RA-76503</td>
+      <td>Ilyushin Il-76TD-90VD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152c97</td>
+      <td>RA-76951</td>
+      <td>Ilyushin Il-76TD-90VD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152c98</td>
+      <td>RA-76952</td>
+      <td>Ilyushin Il-76TD-90VD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151e04</td>
+      <td>RA-73220</td>
+      <td>Airbus A319-111</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151e05</td>
+      <td>RA-73221</td>
+      <td>Airbus A319-111</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151df5</td>
+      <td>RA-73205</td>
+      <td>Airbus A319-111</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151e03</td>
+      <td>RA-73219</td>
+      <td>Airbus A319-111</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151df3</td>
+      <td>RA-73203</td>
+      <td>Airbus A319-111</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151df1</td>
+      <td>RA-73201</td>
+      <td>Airbus A319-111</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>600805</td>
+      <td>4K-AZ05</td>
+      <td>Airbus A319-111</td>
+      <td>Azerbaijan</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>734e70</td>
+      <td>EP-SSP</td>
+      <td>Airbus A319-111</td>
+      <td>Iran</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>734e6c</td>
+      <td>EP-SSL</td>
+      <td>Airbus A319-111</td>
+      <td>Iran</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>14f126</td>
+      <td>RA-61734</td>
+      <td>Antonov An-148-100E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>14f11f</td>
+      <td>RA-61727</td>
+      <td>Antonov An-148-100E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>14f11c</td>
+      <td>RA-61724</td>
+      <td>Antonov An-148-100E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>14f124</td>
+      <td>RA-61732</td>
+      <td>Antonov An-148-100E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>14f125</td>
+      <td>RA-61733</td>
+      <td>Antonov An-148-100E</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>85</td>
+    </tr>
+    <tr>
+      <td>151d41</td>
+      <td>RA-73025</td>
+      <td>Airbus A319-115X CJ</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>600801</td>
+      <td>4K-8888</td>
+      <td>Airbus A319-115X CJ</td>
+      <td>Azerbaijan</td>
+      <td>PRIVATE</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>151fb4</td>
+      <td>RA-73652</td>
+      <td>Boeing 737-752</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151fb3</td>
+      <td>RA-73651</td>
+      <td>Boeing 737-752</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d57</td>
+      <td>RA-73047</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d51</td>
+      <td>RA-73041</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d66</td>
+      <td>RA-73062</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d53</td>
+      <td>RA-73043</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d4b</td>
+      <td>RA-73035</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d65</td>
+      <td>RA-73061</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d52</td>
+      <td>RA-73042</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d59</td>
+      <td>RA-73049</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d54</td>
+      <td>RA-73044</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d4e</td>
+      <td>RA-73038</td>
+      <td>Boeing 737-524</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151edf</td>
+      <td>RA-73439</td>
+      <td>Airbus A321-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>151ee0</td>
+      <td>RA-73440</td>
+      <td>Airbus A321-271N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>140ac0</td>
+      <td>RA-02752</td>
+      <td>Embraer ERJ 135BJ Legacy 650</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>140abc</td>
+      <td>RA-02748</td>
+      <td>Embraer ERJ 135BJ Legacy 650</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>683277</td>
+      <td>UP-EM018</td>
+      <td>Embraer ERJ 135BJ Legacy 650</td>
+      <td>Kazakhstan</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>68333a</td>
+      <td>UP-EM025</td>
+      <td>Embraer ERJ 135BJ Legacy 650</td>
+      <td>Kazakhstan</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>68332f</td>
+      <td>UP-EM024</td>
+      <td>Embraer ERJ 135BJ Legacy 650</td>
+      <td>Kazakhstan</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>09a055</td>
+      <td>C5-SUV</td>
+      <td>Embraer ERJ 135BJ Legacy 650</td>
+      <td>Gambia</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>1520a2</td>
+      <td>RA-73890</td>
+      <td>Boeing 737-7FY BBJ</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td>151f6f</td>
+      <td>RA-73583</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>150694</td>
+      <td>RA-67220</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151f3f</td>
+      <td>RA-73535</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>150693</td>
+      <td>RA-67219</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>1506ac</td>
+      <td>RA-67244</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>150692</td>
+      <td>RA-67218</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>1506a0</td>
+      <td>RA-67232</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151d3c</td>
+      <td>RA-73532</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151f3c</td>
+      <td>RA-73532</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151f80</td>
+      <td>RA-73600</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>1506a1</td>
+      <td>RA-67233</td>
+      <td>Canadair CL-600-2B19 Challenger 850</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151fc3</td>
+      <td>RA-73667</td>
+      <td>Boeing 737-8LP</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fc4</td>
+      <td>RA-73668</td>
+      <td>Boeing 737-8LP</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fc8</td>
+      <td>RA-73672</td>
+      <td>Boeing 737-8LP</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fc7</td>
+      <td>RA-73671</td>
+      <td>Boeing 737-8LP</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151f3a</td>
+      <td>RA-73530</td>
+      <td>Bombardier BD-700-1A11 Global 5500</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>151d56</td>
+      <td>RA-73046</td>
+      <td>Boeing 737-542</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>152c29</td>
+      <td>RA-76841</td>
+      <td>Ilyushin Il-76TD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152a4b</td>
+      <td>RA-76363</td>
+      <td>Ilyushin Il-76TD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152c2e</td>
+      <td>RA-76846</td>
+      <td>Ilyushin Il-76TD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>1533ad</td>
+      <td>RA-78765</td>
+      <td>Ilyushin Il-76TD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152a8d</td>
+      <td>RA-76429</td>
+      <td>Ilyushin Il-76TD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152c2a</td>
+      <td>RA-76842</td>
+      <td>Ilyushin Il-76TD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>152c07</td>
+      <td>RA-76807</td>
+      <td>Ilyushin Il-76TD</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>601848</td>
+      <td>EZ-F428</td>
+      <td>Ilyushin Il-76TD</td>
+      <td>Turkmenistan</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151e2b</td>
+      <td>RA-73259</td>
+      <td>Boeing 737-33R</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td>140aef</td>
+      <td>RA-02799</td>
+      <td>Raytheon 390 Premier 1A</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>151e29</td>
+      <td>RA-73257</td>
+      <td>Boeing 737-8K5</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e2a</td>
+      <td>RA-73258</td>
+      <td>Boeing 737-8K5</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>51012d</td>
+      <td>EW-544PA</td>
+      <td>Boeing 737-8K5</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>140b2a</td>
+      <td>RA-02858</td>
+      <td>Embraer ERJ 135BJ Legacy 600</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>140b40</td>
+      <td>RA-02880</td>
+      <td>Embraer ERJ 135BJ Legacy 600</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>140aeb</td>
+      <td>RA-02795</td>
+      <td>Embraer ERJ 135BJ Legacy 600</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>140ae2</td>
+      <td>RA-02786</td>
+      <td>Embraer ERJ 135BJ Legacy 600</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>68327b</td>
+      <td>UP-EM019</td>
+      <td>Embraer ERJ 135BJ Legacy 600</td>
+      <td>Kazakhstan</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>151e68</td>
+      <td>RA-73320</td>
+      <td>Airbus A320-232CJ Prestige</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151f16</td>
+      <td>RA-73494</td>
+      <td>Boeing 737-8KN</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e63</td>
+      <td>RA-73315</td>
+      <td>Boeing 737-8KN</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e62</td>
+      <td>RA-73314</td>
+      <td>Boeing 737-8KN</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151f15</td>
+      <td>RA-73493</td>
+      <td>Boeing 737-8KN</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151de1</td>
+      <td>RA-73185</td>
+      <td>Boeing 737-8KN</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896333</td>
+      <td>A6-FEB</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963b1</td>
+      <td>A6-FEO</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896335</td>
+      <td>A6-FED</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963ba</td>
+      <td>A6-FEX</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963b6</td>
+      <td>A6-FET</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896378</td>
+      <td>A6-FEG</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963af</td>
+      <td>A6-FEM</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>89637b</td>
+      <td>A6-FEJ</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896334</td>
+      <td>A6-FEC</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896376</td>
+      <td>A6-FEE</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963bc</td>
+      <td>A6-FEZ</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963b4</td>
+      <td>A6-FER</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963b5</td>
+      <td>A6-FES</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963ad</td>
+      <td>A6-FEK</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963bb</td>
+      <td>A6-FEY</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963b9</td>
+      <td>A6-FEW</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963b2</td>
+      <td>A6-FEP</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8963b3</td>
+      <td>A6-FEQ</td>
+      <td>Boeing 737-8KN</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d7a</td>
+      <td>RA-73082</td>
+      <td>Boeing 767-224</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>154ca3</td>
+      <td>RA-85155</td>
+      <td>Tupolev Tu-154M</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>154f53</td>
+      <td>RA-85843</td>
+      <td>Tupolev Tu-154M</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>154c32</td>
+      <td>RA-85042</td>
+      <td>Tupolev Tu-154M</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>151e4c</td>
+      <td>RA-73292</td>
+      <td>Boeing 777-312</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>151e3f</td>
+      <td>RA-73279</td>
+      <td>Boeing 777-312</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>1418d8</td>
+      <td>RA-06360</td>
+      <td>Robinson R66</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>141ea6</td>
+      <td>RA-07846</td>
+      <td>SOCATA TBM 910</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>151f36</td>
+      <td>RA-73526</td>
+      <td>Bombardier BD-700-1A10 Global 6000</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>1506a9</td>
+      <td>RA-67241</td>
+      <td>Bombardier BD-700-1A10 Global 6000</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151f53</td>
+      <td>RA-73555</td>
+      <td>Bombardier BD-700-1A10 Global 6000</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151f4e</td>
+      <td>RA-73550</td>
+      <td>Bombardier BD-700-1A10 Global 6000</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>150658</td>
+      <td>RA-67160</td>
+      <td>Bombardier BD-700-1A10 Global 6000</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151f38</td>
+      <td>RA-73528</td>
+      <td>Bombardier BD-700-1A10 Global 6000</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>150641</td>
+      <td>RA-67137</td>
+      <td>Bombardier BD-100-1A10 Challenger 350</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>15063a</td>
+      <td>RA-67130</td>
+      <td>Bombardier BD-100-1A10 Challenger 350</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>155bca</td>
+      <td>RA-89034</td>
+      <td>Sukhoi SuperJet 100-95-LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>103</td>
+    </tr>
+    <tr>
+      <td>151fbb</td>
+      <td>RA-73659</td>
+      <td>Boeing 737-89P</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151fb9</td>
+      <td>RA-73657</td>
+      <td>Boeing 737-8JP</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>150657</td>
+      <td>RA-67159</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>1506a8</td>
+      <td>RA-67240</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>150651</td>
+      <td>RA-67153</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>1506a7</td>
+      <td>RA-67239</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>150654</td>
+      <td>RA-67156</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>150643</td>
+      <td>RA-67139</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>1500c5</td>
+      <td>RA-65733</td>
+      <td>Tupolev Tu-134B-3</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>157716</td>
+      <td>RA-96022</td>
+      <td>Ilyushin Il-96-300PU(M1)</td>
+      <td>Russia</td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>157715</td>
+      <td>RA-96021</td>
+      <td>Ilyushin Il-96-300PU(M1)</td>
+      <td>Russia</td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>157719</td>
+      <td>RA-96025</td>
+      <td>Ilyushin Il-96-300PU(M1)</td>
+      <td>Russia</td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>142580</td>
+      <td>RA-09600</td>
+      <td>Dassault Falcon 900EX</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>15207a</td>
+      <td>RA-73850</td>
+      <td>Airbus A330-302</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>152079</td>
+      <td>RA-73849</td>
+      <td>Airbus A330-302</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>14fa0a</td>
+      <td>RA-64010</td>
+      <td>Tupolev Tu-204</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>214</td>
+    </tr>
+    <tr>
+      <td>151d76</td>
+      <td>RA-73078</td>
+      <td>Boeing 767-3Q8ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>151d4a</td>
+      <td>RA-73034</td>
+      <td>Boeing 767-3Q8ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>151d46</td>
+      <td>RA-73030</td>
+      <td>Boeing 767-3Q8ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>151e33</td>
+      <td>RA-73267</td>
+      <td>Boeing 737-7CT</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e2e</td>
+      <td>RA-73262</td>
+      <td>Boeing 737-7CT</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>51408c</td>
+      <td>4L-GTI</td>
+      <td>Boeing 737-7CT</td>
+      <td>Georgia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e38</td>
+      <td>RA-73272</td>
+      <td>Boeing 777-2Q8ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>143d17</td>
+      <td>RA-07447</td>
+      <td>Robinson R66 Turbine</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>14169a</td>
+      <td>RA-05786</td>
+      <td>Robinson R66 Turbine</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>1416ba</td>
+      <td>RA-05818</td>
+      <td>Robinson R66 Turbine</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151e6d</td>
+      <td>RA-73325</td>
+      <td>Airbus A321-232</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>236</td>
+    </tr>
+    <tr>
+      <td>140b2f</td>
+      <td>RA-02863</td>
+      <td>Embraer 170-100SU</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>140b2d</td>
+      <td>RA-02861</td>
+      <td>Embraer 170-100SU</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>140b35</td>
+      <td>RA-02869</td>
+      <td>Embraer 170-100SU</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>140b2e</td>
+      <td>RA-02862</td>
+      <td>Embraer 170-100SU</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>15069d</td>
+      <td>RA-67229</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>15069e</td>
+      <td>RA-67230</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>150644</td>
+      <td>RA-67140</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-200LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>151d84</td>
+      <td>RA-73092</td>
+      <td>Boeing 757-222SF</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>239</td>
+    </tr>
+    <tr>
+      <td>157766</td>
+      <td>RA-96102</td>
+      <td>Ilyushin Il-96-400T</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>14fc16</td>
+      <td>RA-64534</td>
+      <td>Tupolev Tu-214PU</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>14fc08</td>
+      <td>RA-64520</td>
+      <td>Tupolev Tu-214PU</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>14fc09</td>
+      <td>RA-64521</td>
+      <td>Tupolev Tu-214PU</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>15205f</td>
+      <td>RA-73823</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>152006</td>
+      <td>RA-73734</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>151fbe</td>
+      <td>RA-73662</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>152007</td>
+      <td>RA-73735</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>15205d</td>
+      <td>RA-73821</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>152004</td>
+      <td>RA-73732</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>152005</td>
+      <td>RA-73733</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>15205e</td>
+      <td>RA-73822</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>152002</td>
+      <td>RA-73730</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>15205c</td>
+      <td>RA-73820</td>
+      <td>Airbus A320-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb87a</td>
+      <td>TC-NCZ</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb856</td>
+      <td>TC-NBV</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb876</td>
+      <td>TC-NCV</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb85a</td>
+      <td>TC-NBZ</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb84f</td>
+      <td>TC-NBO</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb870</td>
+      <td>TC-NCP</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb866</td>
+      <td>TC-NCF</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb84a</td>
+      <td>TC-NBJ</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb84c</td>
+      <td>TC-NBL</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb864</td>
+      <td>TC-NCD</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb872</td>
+      <td>TC-NCR</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb852</td>
+      <td>TC-NBR</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb86b</td>
+      <td>TC-NCK</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb873</td>
+      <td>TC-NCS</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb854</td>
+      <td>TC-NBT</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb874</td>
+      <td>TC-NCT</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb875</td>
+      <td>TC-NCU</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb863</td>
+      <td>TC-NCC</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb859</td>
+      <td>TC-NBY</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb879</td>
+      <td>TC-NCY</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb86d</td>
+      <td>TC-NCM</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>4bb855</td>
+      <td>TC-NBU</td>
+      <td>Airbus A320-251N</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>706132</td>
+      <td>9K-CBK</td>
+      <td>Airbus A320-251N</td>
+      <td>Kuwait</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>70612c</td>
+      <td>9K-CBE</td>
+      <td>Airbus A320-251N</td>
+      <td>Kuwait</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>706131</td>
+      <td>9K-CBJ</td>
+      <td>Airbus A320-251N</td>
+      <td>Kuwait</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>706130</td>
+      <td>9K-CBI</td>
+      <td>Airbus A320-251N</td>
+      <td>Kuwait</td>
+      <td>COMMERCIAL</td>
+      <td>195</td>
+    </tr>
+    <tr>
+      <td>15064a</td>
+      <td>RA-67146</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-100ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>150646</td>
+      <td>RA-67142</td>
+      <td>Canadair CL-600-2B19 Regional Jet CRJ-100ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>14066a</td>
+      <td>RA-01642</td>
+      <td>Bell 429 GlobalRanger</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>140664</td>
+      <td>RA-01636</td>
+      <td>Bell 429 GlobalRanger</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>140668</td>
+      <td>RA-01640</td>
+      <td>Bell 429 GlobalRanger</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151fd3</td>
+      <td>RA-73683</td>
+      <td>Airbus A319-114</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151fd2</td>
+      <td>RA-73682</td>
+      <td>Airbus A319-114</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151fd1</td>
+      <td>RA-73681</td>
+      <td>Airbus A319-114</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151dfa</td>
+      <td>RA-73210</td>
+      <td>Airbus A319-114</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>1506b2</td>
+      <td>RA-67250</td>
+      <td>Bombardier BD-100-1A10 Challenger 300</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>150691</td>
+      <td>RA-67217</td>
+      <td>Bombardier BD-100-1A10 Challenger 300</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>15087f</td>
+      <td>RA-67711</td>
+      <td>Cessna 172S Skyhawk SP</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>15067f</td>
+      <td>RA-67199</td>
+      <td>Cessna 172S Skyhawk SP</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>157711</td>
+      <td>RA-96017</td>
+      <td>Ilyushin Il-96-300</td>
+      <td>Russia</td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>157710</td>
+      <td>RA-96016</td>
+      <td>Ilyushin Il-96-300</td>
+      <td>Russia</td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>157712</td>
+      <td>RA-96018</td>
+      <td>Ilyushin Il-96-300</td>
+      <td>Russia</td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>15770e</td>
+      <td>RA-96014</td>
+      <td>Ilyushin Il-96-300</td>
+      <td>Russia</td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>140aca</td>
+      <td>RA-02762</td>
+      <td>Raytheon Hawker 800XP</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>140ae9</td>
+      <td>RA-02793</td>
+      <td>Raytheon Hawker 800XP</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>140aae</td>
+      <td>RA-02734</td>
+      <td>Raytheon Hawker 800XP</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>151e4e</td>
+      <td>RA-73294</td>
+      <td>Boeing 737-8MA</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151e4f</td>
+      <td>RA-73295</td>
+      <td>Boeing 737-8MA</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>14a5b7</td>
+      <td>RA-42423</td>
+      <td>Yakovlev Yak-42D</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <td>14a5ac</td>
+      <td>RA-42412</td>
+      <td>Yakovlev Yak-42D</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>120</td>
+    </tr>
+    <tr>
+      <td>142586</td>
+      <td>RA-09606</td>
+      <td>Dassault Falcon 8X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>14258c</td>
+      <td>RA-09612</td>
+      <td>Dassault Falcon 8X</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>1fffff</td>
+      <td>RA-20092</td>
+      <td>Kazan Ansat</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>142afa</td>
+      <td>RA-11002</td>
+      <td>Gulfstream Aerospace GIV-X (G450)</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>142af9</td>
+      <td>RA-11001</td>
+      <td>Gulfstream Aerospace GIV-X (G450)</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>780b2a</td>
+      <td>B-8271</td>
+      <td>Gulfstream Aerospace GIV-X (G450)</td>
+      <td>China</td>
+      <td>PRIVATE</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>140671</td>
+      <td>RA-01649</td>
+      <td>Bell 505 JetRanger X</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>140aaa</td>
+      <td>RA-02730</td>
+      <td>Raytheon Hawker 850XP</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>1506fe</td>
+      <td>RA-67326</td>
+      <td>Cessna 500 Citation I</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>140ac5</td>
+      <td>RA-02757</td>
+      <td>Embraer Legacy 600</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>1506a6</td>
+      <td>RA-67238</td>
+      <td>Bombardier Challenger 605</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>15064b</td>
+      <td>RA-67147</td>
+      <td>Bombardier Challenger 605</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>14fa39</td>
+      <td>RA-64057</td>
+      <td>Tupolev Tu-204-300A</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>210</td>
+    </tr>
+    <tr>
+      <td>14fa3b</td>
+      <td>RA-64059</td>
+      <td>Tupolev Tu-204-300A</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>210</td>
+    </tr>
+    <tr>
+      <td>151fc6</td>
+      <td>RA-73670</td>
+      <td>Boeing 737-8ZS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fc0</td>
+      <td>RA-73664</td>
+      <td>Boeing 737-8ZS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151fc1</td>
+      <td>RA-73665</td>
+      <td>Boeing 737-8ZS</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>155c6b</td>
+      <td>RA-89195</td>
+      <td>Sukhoi SuperJet 95-100LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>1501c8</td>
+      <td>RA-65992</td>
+      <td>Tupolev Tu-134AK</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>15009a</td>
+      <td>RA-65690</td>
+      <td>Tupolev Tu-134AK</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td>151d45</td>
+      <td>RA-73029</td>
+      <td>Boeing 757-2K2</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>acb8f4</td>
+      <td>RA-07845</td>
+      <td>Beech G36 Bonanza</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>151d6b</td>
+      <td>RA-73067</td>
+      <td>Boeing 737-45S</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d69</td>
+      <td>RA-73065</td>
+      <td>Boeing 737-45S</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d6d</td>
+      <td>RA-73069</td>
+      <td>Boeing 737-45S</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>b11ec9</td>
+      <td>RA-73417</td>
+      <td>Airbus A319-133CJ</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>160</td>
+    </tr>
+    <tr>
+      <td>151d2c</td>
+      <td>RA-73004</td>
+      <td>Boeing 737-76N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151d28</td>
+      <td>RA-73000</td>
+      <td>Boeing 737-76N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>151e2f</td>
+      <td>RA-73263</td>
+      <td>Boeing 737-76N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>1506aa</td>
+      <td>RA-67242</td>
+      <td>Bombardier Global Express XRS</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>141d5d</td>
+      <td>RA-07517</td>
+      <td>Eurocopter AS350 B3e Ecureuil</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>141d5b</td>
+      <td>RA-07515</td>
+      <td>Eurocopter AS350 B3e Ecureuil</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>1405ee</td>
+      <td>RA-01518</td>
+      <td>Pilatus PC-12/47E</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>141ebe</td>
+      <td>RA-07870</td>
+      <td>Pilatus PC-12/47E</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>5100e9</td>
+      <td>EW-502LL</td>
+      <td>Pilatus PC-12/47E</td>
+      <td>Belarus</td>
+      <td>PRIVATE</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>140ae4</td>
+      <td>RA-02788</td>
+      <td>Embraer EMB 550 Legacy 500</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>140629</td>
+      <td>RA-01577</td>
+      <td>Pilatus PC-24</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>14f115</td>
+      <td>RA-61717</td>
+      <td>Antonov An-148-100EM</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151efb</td>
+      <td>RA-73467</td>
+      <td>Boeing 737-8AS(F)</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>1427dd</td>
+      <td>RA-10205</td>
+      <td>Gulfstream Aerospace GVI (G650)</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>14fa0e</td>
+      <td>RA-64014</td>
+      <td>Tupolev Tu-204-100</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>150690</td>
+      <td>RA-67216</td>
+      <td>Bombardier Challenger 604</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151dff</td>
+      <td>RA-73215</td>
+      <td>Airbus A319-115LR</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>150805</td>
+      <td>RA-67589</td>
+      <td>Cessna 560XL Citation XLS+</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>14fa34</td>
+      <td>RA-64052</td>
+      <td>Tupolev Tu-204-120C</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>214</td>
+    </tr>
+    <tr>
+      <td>14fa33</td>
+      <td>RA-64051</td>
+      <td>Tupolev Tu-204-120C</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>214</td>
+    </tr>
+    <tr>
+      <td>14f11b</td>
+      <td>RA-61723</td>
+      <td>Antonov An-148-100A</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>ab6383</td>
+      <td>RA-07841</td>
+      <td>Cirrus SR22</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>151de0</td>
+      <td>RA-73184</td>
+      <td>Boeing 737-85R</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>215</td>
+    </tr>
+    <tr>
+      <td>142afd</td>
+      <td>RA-11005</td>
+      <td>Gulfstream Aerospace GVI (G650ER)</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>1427dc</td>
+      <td>RA-10204</td>
+      <td>Gulfstream G650</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>15063b</td>
+      <td>RA-67131</td>
+      <td>Bombardier BD-700-1A11 Global 5000</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151f19</td>
+      <td>RA-73497</td>
+      <td>Boeing 737-8BK</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4bd150</td>
+      <td>TC-TJP</td>
+      <td>Boeing 737-8BK</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>140ad4</td>
+      <td>RA-02772</td>
+      <td>British Aerospace BAe-125 Series 800A</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>151f39</td>
+      <td>RA-73529</td>
+      <td>Bombardier BD-700-1A10 Global Express XRS</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>15068f</td>
+      <td>RA-67215</td>
+      <td>Bombardier BD-700-1A10 Global Express XRS</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>Unknown</td>
+    </tr>
+    <tr>
+      <td>1551e0</td>
+      <td>RA-86496</td>
+      <td>Ilyushin Il-62M</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>186</td>
+    </tr>
+    <tr>
+      <td>15521f</td>
+      <td>RA-86559</td>
+      <td>Ilyushin Il-62M</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>186</td>
+    </tr>
+    <tr>
+      <td>14fc04</td>
+      <td>RA-64516</td>
+      <td>Tupolev Tu-214SR</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>141d43</td>
+      <td>RA-07491</td>
+      <td>Eurocopter EC130 T2</td>
+      <td>Russia</td>
+      <td>HELICOPTER</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>14fc12</td>
+      <td>RA-64530</td>
+      <td>Tupolev Tu-214</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>210</td>
+    </tr>
+    <tr>
+      <td>151e7f</td>
+      <td>RA-73343</td>
+      <td>Boeing 737-9GPER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>215</td>
+    </tr>
+    <tr>
+      <td>154e52</td>
+      <td>RA-85586</td>
+      <td>Tupolev Tu-154B-2</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>151d7b</td>
+      <td>RA-73083</td>
+      <td>Boeing 767-224ER</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>151e6a</td>
+      <td>RA-73322</td>
+      <td>Airbus A321-251N</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>240</td>
+    </tr>
+    <tr>
+      <td>155bdd</td>
+      <td>RA-89053</td>
+      <td>Sukhoi Superjet 100-95B</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>155c40</td>
+      <td>89152</td>
+      <td>Sukhoi Superjet 100-95B</td>
+      <td></td>
+      <td>COMMERCIAL</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>15069a</td>
+      <td>RA-67226</td>
+      <td>Bombardier Global 5000</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151e50</td>
+      <td>RA-73296</td>
+      <td>Boeing 737-81D</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>14fc13</td>
+      <td>RA-64531</td>
+      <td>Tupolev Tu-214PU-SBUS</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>151fb7</td>
+      <td>RA-73655</td>
+      <td>Boeing 737-8AL</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>1520a0</td>
+      <td>RA-73888</td>
+      <td>Airbus A318-112CJ Elite</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>142330</td>
+      <td>RA-09008</td>
+      <td>Dassault Falcon 900EX EASy</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151f18</td>
+      <td>RA-73496</td>
+      <td>Boeing 737-8S3</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>151d74</td>
+      <td>RA-73076</td>
+      <td>Boeing 757-28A</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>239</td>
+    </tr>
+    <tr>
+      <td>1427d9</td>
+      <td>RA-10201</td>
+      <td>Gulfstream Aerospace G-IV-SP</td>
+      <td>Russia</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>151e70</td>
+      <td>RA-73328</td>
+      <td>Airbus A330-223</td>
+      <td>Russia</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>14fc0b</td>
+      <td>RA-64523</td>
+      <td>Tupolev Tu-214VPU</td>
+      <td>Russia</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>738057</td>
+      <td>4X-EHI</td>
+      <td>Boeing 737-958ER</td>
+      <td>Israel</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>738056</td>
+      <td>4X-EHH</td>
+      <td>Boeing 737-958ER</td>
+      <td>Israel</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>738055</td>
+      <td>4X-EHF</td>
+      <td>Boeing 737-958ER</td>
+      <td>Israel</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>738072</td>
+      <td>4X-ECB</td>
+      <td>Boeing 777-258ER</td>
+      <td>Israel</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>896539</td>
+      <td>A6-BNB</td>
+      <td>Boeing 787-9</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <td>896489</td>
+      <td>A6-BLI</td>
+      <td>Boeing 787-9</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <td>896538</td>
+      <td>A6-BNA</td>
+      <td>Boeing 787-9</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <td>8964fa</td>
+      <td>A6-BLU</td>
+      <td>Boeing 787-9</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <td>896465</td>
+      <td>A6-BLG</td>
+      <td>Boeing 787-9</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>296</td>
+    </tr>
+    <tr>
+      <td>8965b6</td>
+      <td>A6-FMZ</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8964d3</td>
+      <td>A6-FMD</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965d6</td>
+      <td>A6-FKK</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8964d2</td>
+      <td>A6-FMC</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896555</td>
+      <td>A6-FMO</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965d1</td>
+      <td>A6-FKF</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896533</td>
+      <td>A6-FML</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965b1</td>
+      <td>A6-FMU</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8964d4</td>
+      <td>A6-FME</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965cc</td>
+      <td>A6-FKA</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965b2</td>
+      <td>A6-FMV</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965b3</td>
+      <td>A6-FMW</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965d2</td>
+      <td>A6-FKG</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896530</td>
+      <td>A6-FMJ</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8964cf</td>
+      <td>A6-MAX</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965b4</td>
+      <td>A6-FMX</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896556</td>
+      <td>A6-FMN</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965ce</td>
+      <td>A6-FKC</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965d5</td>
+      <td>A6-FKJ</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>8965d4</td>
+      <td>A6-FKI</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896557</td>
+      <td>A6-FMP</td>
+      <td>Boeing 737-8</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4bb564</td>
+      <td>TC-MKD</td>
+      <td>Boeing 737-8</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4bb562</td>
+      <td>TC-MKB</td>
+      <td>Boeing 737-8</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4bb563</td>
+      <td>TC-MKC</td>
+      <td>Boeing 737-8</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4bb566</td>
+      <td>TC-MKF</td>
+      <td>Boeing 737-8</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>510116</td>
+      <td>EW-528PA</td>
+      <td>Boeing 737-8</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>683329</td>
+      <td>UP-B3737</td>
+      <td>Boeing 737-8</td>
+      <td>Kazakhstan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>683266</td>
+      <td>UP-B3720</td>
+      <td>Boeing 737-8</td>
+      <td>Kazakhstan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>72866d</td>
+      <td>YI-ASM</td>
+      <td>Boeing 737-8</td>
+      <td>Iraq</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>72866c</td>
+      <td>YI-ASL</td>
+      <td>Boeing 737-8</td>
+      <td>Iraq</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>896191</td>
+      <td>A6-EER</td>
+      <td>Airbus A380-861</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>853</td>
+    </tr>
+    <tr>
+      <td>8960f2</td>
+      <td>A6-EDQ</td>
+      <td>Airbus A380-861</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>853</td>
+    </tr>
+    <tr>
+      <td>896477</td>
+      <td>A6-EUM</td>
+      <td>Airbus A380-842</td>
+      <td>United Arab Emirates</td>
+      <td>COMMERCIAL</td>
+      <td>853</td>
+    </tr>
+    <tr>
+      <td>4ba9ef</td>
+      <td>TC-JOO</td>
+      <td>Airbus A330-223F</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>4ba8c8</td>
+      <td>TC-JFH</td>
+      <td>Boeing 737-8F2</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4ba8d2</td>
+      <td>TC-JFR</td>
+      <td>Boeing 737-8F2</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4ba8cb</td>
+      <td>TC-JFK</td>
+      <td>Boeing 737-8F2</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4ba8f9</td>
+      <td>TC-JGY</td>
+      <td>Boeing 737-8F2</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4ba904</td>
+      <td>TC-JHD</td>
+      <td>Boeing 737-8F2</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4ba8f4</td>
+      <td>TC-JGT</td>
+      <td>Boeing 737-8F2</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4ba8d4</td>
+      <td>TC-JFT</td>
+      <td>Boeing 737-8F2</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4ba8f6</td>
+      <td>TC-JGV</td>
+      <td>Boeing 737-8F2</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4bd184</td>
+      <td>TC-TLD</td>
+      <td>Boeing 737-4Q8</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <td>4bd181</td>
+      <td>TC-TLA</td>
+      <td>Boeing 737-4Q8</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <td>4ba9c1</td>
+      <td>TC-JNA</td>
+      <td>Airbus A330-203</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>4ba9c2</td>
+      <td>TC-JNB</td>
+      <td>Airbus A330-203</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>4ba9c3</td>
+      <td>TC-JNC</td>
+      <td>Airbus A330-203</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>4ba948</td>
+      <td>TC-JJH</td>
+      <td>Boeing 777-3F2ER</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>4ba945</td>
+      <td>TC-JJE</td>
+      <td>Boeing 777-3F2ER</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>4ba949</td>
+      <td>TC-JJI</td>
+      <td>Boeing 777-3F2ER</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>4ba946</td>
+      <td>TC-JJF</td>
+      <td>Boeing 777-3F2ER</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>4ba947</td>
+      <td>TC-JJG</td>
+      <td>Boeing 777-3F2ER</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>4b9e45</td>
+      <td>TC-GRE</td>
+      <td>Airbus A321-253NX</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>244</td>
+    </tr>
+    <tr>
+      <td>89409e</td>
+      <td>A9C-NA</td>
+      <td>Airbus A321-253NX</td>
+      <td>Bahrain</td>
+      <td>COMMERCIAL</td>
+      <td>244</td>
+    </tr>
+    <tr>
+      <td>4b850c</td>
+      <td>TC-AHL</td>
+      <td>Gulfstream IV-SP</td>
+      <td>Turkey</td>
+      <td>PRIVATE</td>
+      <td>19</td>
+    </tr>
+    <tr>
+      <td>4bd154</td>
+      <td>TC-TJT</td>
+      <td>Boeing 737-8HC</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4bd155</td>
+      <td>TC-TJU</td>
+      <td>Boeing 737-8HX</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>4b9069</td>
+      <td>TC-DCI</td>
+      <td>Airbus A320-216</td>
+      <td>Turkey</td>
+      <td>COMMERCIAL</td>
+      <td>186</td>
+    </tr>
+    <tr>
+      <td>5100fc</td>
+      <td>EW-514PO</td>
+      <td>Embraer 190-200LR-195LR</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>5100fb</td>
+      <td>EW-513PO</td>
+      <td>Embraer 190-200LR-195LR</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>51007f</td>
+      <td>EW-399PO</td>
+      <td>Embraer 190-200LR-195LR</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>510080</td>
+      <td>EW-400PO</td>
+      <td>Embraer 190-200LR-195LR</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>510043</td>
+      <td>EW-254PA</td>
+      <td>Boeing 737-3Q8</td>
+      <td>Belarus</td>
+      <td>COMMERCIAL</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td>507c49</td>
+      <td>UK67006</td>
+      <td>Boeing 767-33PER</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>507c45</td>
+      <td>UK67004</td>
+      <td>Boeing 767-33PER</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>507c44</td>
+      <td>UK67003</td>
+      <td>Boeing 767-33PER</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>507c48</td>
+      <td>UK67005</td>
+      <td>Boeing 767-33PER</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>507c38</td>
+      <td>UK67001</td>
+      <td>Boeing 767-33PER</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>375</td>
+    </tr>
+    <tr>
+      <td>507c4c</td>
+      <td>UK78701</td>
+      <td>Boeing 787-8</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <td>507c55</td>
+      <td>UK78705</td>
+      <td>Boeing 787-8</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <td>507c59</td>
+      <td>UK78706</td>
+      <td>Boeing 787-8</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <td>507c54</td>
+      <td>UK78704</td>
+      <td>Boeing 787-8</td>
+      <td>Uzbekistan</td>
+      <td>COMMERCIAL</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <td>040047</td>
+      <td>ET-AOQ</td>
+      <td>Boeing 787-8</td>
+      <td>Ethiopia</td>
+      <td>COMMERCIAL</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <td>040048</td>
+      <td>ET-AOR</td>
+      <td>Boeing 787-8</td>
+      <td>Ethiopia</td>
+      <td>COMMERCIAL</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <td>06a0b3</td>
+      <td>A7-BCO</td>
+      <td>Boeing 787-8</td>
+      <td>Qatar</td>
+      <td>COMMERCIAL</td>
+      <td>242</td>
+    </tr>
+    <tr>
+      <td>78076e</td>
+      <td>B-2088</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>7808cb</td>
+      <td>B-2033</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>7808cc</td>
+      <td>B-2035</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>780bf8</td>
+      <td>B-2047</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>78076d</td>
+      <td>B-2087</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>78076b</td>
+      <td>B-2085</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>780970</td>
+      <td>B-2036</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>780022</td>
+      <td>B-2089</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>78086c</td>
+      <td>B-2031</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>780c9e</td>
+      <td>B-2006</td>
+      <td>Boeing 777-39LER</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>7816bd</td>
+      <td>B-308P</td>
+      <td>Airbus A330-243F</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>293</td>
+    </tr>
+    <tr>
+      <td>7816a1</td>
+      <td>B-308L</td>
+      <td>Airbus A330-243F</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>293</td>
+    </tr>
+    <tr>
+      <td>7810fb</td>
+      <td>B-8959</td>
+      <td>Airbus A330-243</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>7810c6</td>
+      <td>B-8776</td>
+      <td>Airbus A330-243</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>7811fd</td>
+      <td>B-8596</td>
+      <td>Airbus A330-243</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>780e2e</td>
+      <td>B-8015</td>
+      <td>Airbus A330-343</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781590</td>
+      <td>B-304K</td>
+      <td>Airbus A330-343</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>780bb9</td>
+      <td>B-2098</td>
+      <td>Boeing 777-FFT</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>780c5b</td>
+      <td>B-2091</td>
+      <td>Boeing 777-FFT</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>780d8f</td>
+      <td>B-2094</td>
+      <td>Boeing 777-FFT</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>780bb6</td>
+      <td>B-2095</td>
+      <td>Boeing 777-FFT</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>396</td>
+    </tr>
+    <tr>
+      <td>780094</td>
+      <td>B-6095</td>
+      <td>Airbus A330-343X</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>7806e1</td>
+      <td>B-6527</td>
+      <td>Airbus A330-343X</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>780301</td>
+      <td>B-6085</td>
+      <td>Airbus A330-343X</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>70c0a7</td>
+      <td>A4O-DD</td>
+      <td>Airbus A330-343X</td>
+      <td>Oman</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>70c0a5</td>
+      <td>A4O-DB</td>
+      <td>Airbus A330-343X</td>
+      <td>Oman</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>70c0ab</td>
+      <td>A4O-DE</td>
+      <td>Airbus A330-343X</td>
+      <td>Oman</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>781273</td>
+      <td>B-1340</td>
+      <td>Boeing 747-4HAERF</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>660</td>
+    </tr>
+    <tr>
+      <td>781cde</td>
+      <td>B-221F</td>
+      <td>Boeing 767-33AERSF</td>
+      <td>China</td>
+      <td>COMMERCIAL</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>6830bb</td>
+      <td>UP-CS301</td>
+      <td>Cessna 525B CitationJet CJ3</td>
+      <td>Kazakhstan</td>
+      <td>PRIVATE</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>6831ef</td>
+      <td>UP-B3712</td>
+      <td>Boeing 737-35B</td>
+      <td>Kazakhstan</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>683285</td>
+      <td>UP-CS502</td>
+      <td>Cessna 750 Citation X</td>
+      <td>Kazakhstan</td>
+      <td>PRIVATE</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>683273</td>
+      <td>UP-B3726</td>
+      <td>Boeing 737-9</td>
+      <td>Kazakhstan</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>683274</td>
+      <td>UP-B3727</td>
+      <td>Boeing 737-9</td>
+      <td>Kazakhstan</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>600012</td>
+      <td>EK-SHC</td>
+      <td>Boeing 737-55S</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>600009</td>
+      <td>EK-222</td>
+      <td>SOCATA TBM 940</td>
+      <td>Armenia</td>
+      <td>PRIVATE</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>600005</td>
+      <td>EK73740</td>
+      <td>Boeing 737-3L9</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td>600010</td>
+      <td>EK73736</td>
+      <td>Boeing 737-505</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>6000a2</td>
+      <td>EK-SHA</td>
+      <td>Boeing 737-505</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>600031</td>
+      <td>EK-FOB</td>
+      <td>Airbus A320-233</td>
+      <td>Armenia</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>6010ef</td>
+      <td>EX-32008</td>
+      <td>Airbus A320-233</td>
+      <td>Kyrgyzstan</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>6010f7</td>
+      <td>EX-32009</td>
+      <td>Airbus A320-233</td>
+      <td>Kyrgyzstan</td>
+      <td>COMMERCIAL</td>
+      <td>180</td>
+    </tr>
+    <tr>
+      <td>010146</td>
+      <td>SU-GDZ</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>01010a</td>
+      <td>SU-GDB</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>010147</td>
+      <td>SU-GEA</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>010160</td>
+      <td>SU-GEB</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>0100df</td>
+      <td>SU-GCR</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>010161</td>
+      <td>SU-GEC</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>0100dd</td>
+      <td>SU-GCO</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>01010b</td>
+      <td>SU-GDC</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>010145</td>
+      <td>SU-GDY</td>
+      <td>Boeing 737-866</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>010109</td>
+      <td>SU-GDA</td>
+      <td>Boeing 737-886</td>
+      <td>Egypt</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>6010ab</td>
+      <td>EX-37012</td>
+      <td>Boeing 737-33A</td>
+      <td>Kyrgyzstan</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>6010c5</td>
+      <td>EX-37015</td>
+      <td>Boeing 737-3K2</td>
+      <td>Kyrgyzstan</td>
+      <td>COMMERCIAL</td>
+      <td>149</td>
+    </tr>
+    <tr>
+      <td>49c0e7</td>
+      <td>OK-QUU 06</td>
+      <td>BRM Aero Bristell NG5 SpeedWing</td>
+      <td>Czech Republic</td>
+      <td>PRIVATE</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>60003c</td>
+      <td>701</td>
+      <td>Airbus A319-132</td>
+      <td></td>
+      <td>COMMERCIAL</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>4c01ea</td>
+      <td>YU-APK</td>
+      <td>Airbus A319-132</td>
+      <td>Serbia</td>
+      <td>COMMERCIAL</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>4c01e1</td>
+      <td>YU-APB</td>
+      <td>Airbus A319-132</td>
+      <td>Serbia</td>
+      <td>COMMERCIAL</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>4c01ed</td>
+      <td>YU-APN</td>
+      <td>Airbus A319-132</td>
+      <td>Serbia</td>
+      <td>COMMERCIAL</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>4c01ec</td>
+      <td>YU-APM</td>
+      <td>Airbus A319-132</td>
+      <td>Serbia</td>
+      <td>COMMERCIAL</td>
+      <td>156</td>
+    </tr>
+    <tr>
+      <td>466b38</td>
+      <td></td>
+      <td>-</td>
+      <td></td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>032091</td>
+      <td></td>
+      <td>-</td>
+      <td></td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>600be9</td>
+      <td></td>
+      <td>-</td>
+      <td></td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>ea000f</td>
+      <td></td>
+      <td>-</td>
+      <td></td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>26002b</td>
+      <td></td>
+      <td>-</td>
+      <td></td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>053977</td>
+      <td>VARIOUS</td>
+      <td>Several Different Aircraft</td>
+      <td></td>
+      <td>UNKNOWN</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <td>1f3395</td>
+      <td>78741</td>
+      <td>Ilyushin Il-78M-90A</td>
+      <td></td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>0a402d</td>
+      <td>7T-VPP</td>
+      <td>Airbus A340-541X Prestige</td>
+      <td>Algeria</td>
+      <td>PRIVATE</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>0a0093</td>
+      <td>7T-VKT</td>
+      <td>Boeing 737-7D6C</td>
+      <td>Algeria</td>
+      <td>COMMERCIAL</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <td>0a0074</td>
+      <td>7T-VKD</td>
+      <td>Boeing 737-8D6</td>
+      <td>Algeria</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>600bbf</td>
+      <td>4K-AZ11</td>
+      <td>Boeing 757-22L</td>
+      <td>Azerbaijan</td>
+      <td>COMMERCIAL</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>600843</td>
+      <td>4K-AZ67</td>
+      <td>Embraer 190-100AR</td>
+      <td>Azerbaijan</td>
+      <td>COMMERCIAL</td>
+      <td>114</td>
+    </tr>
+    <tr>
+      <td>600866</td>
+      <td>4K-AZ102</td>
+      <td>Ilyushin IL-76TD</td>
+      <td>Azerbaijan</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>60183d</td>
+      <td>EZ-A015</td>
+      <td>Boeing 737-82K</td>
+      <td>Turkmenistan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>60183c</td>
+      <td>EZ-A016</td>
+      <td>Boeing 737-82K</td>
+      <td>Turkmenistan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>60183b</td>
+      <td>EZ-A017</td>
+      <td>Boeing 737-82K</td>
+      <td>Turkmenistan</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <td>7335c6</td>
+      <td>EP-MNF</td>
+      <td>Airbus A310-304</td>
+      <td>Iran</td>
+      <td>COMMERCIAL</td>
+      <td>220</td>
+    </tr>
+    <tr>
+      <td>7335a1</td>
+      <td>EP-MMA</td>
+      <td>Airbus A340-311</td>
+      <td>Iran</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>7335a3</td>
+      <td>EP-MMC</td>
+      <td>Airbus A340-313</td>
+      <td>Iran</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>7335a4</td>
+      <td>EP-MMD</td>
+      <td>Airbus A340-313</td>
+      <td>Iran</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>0d8469</td>
+      <td>YV3535</td>
+      <td>Airbus A340-642</td>
+      <td>Venezuela</td>
+      <td>COMMERCIAL</td>
+      <td>440</td>
+    </tr>
+    <tr>
+      <td>778681</td>
+      <td>YK-ATA</td>
+      <td>Ilyushin Il-76T</td>
+      <td>Syria</td>
+      <td>MILITARY</td>
+      <td>UNKNOWN</td>
+    </tr>
+    <tr>
+      <td>0200ae</td>
+      <td>CN-ROY</td>
+      <td>Boeing 737-8B6</td>
+      <td>Morocco</td>
+      <td>COMMERCIAL</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <td>02007a</td>
+      <td>CN-ROP</td>
+      <td>Boeing 737-8B6</td>
+      <td>Morocco</td>
+      <td>COMMERCIAL</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <td>020072</td>
+      <td>CN-ROL</td>
+      <td>Boeing 737-8B6</td>
+      <td>Morocco</td>
+      <td>COMMERCIAL</td>
+      <td>162</td>
+    </tr>
+    <tr>
+      <td>3cd70e</td>
+      <td>D-CITA</td>
+      <td>Learjet 60</td>
+      <td>Germany</td>
+      <td>PRIVATE</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>5140b3</td>
+      <td>4L-GTD</td>
+      <td>Boeing 737-8FH</td>
+      <td>Georgia</td>
+      <td>COMMERCIAL</td>
+      <td>189</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+<script>
+    $(document).ready(function () {
+        // Setup - add a text input to each header cell
+        $('.dataframe thead tr')
+            .clone(true)
+            .addClass('filters')
+            .appendTo('.dataframe thead');
+
+        var table = $('.dataframe').DataTable({
+            orderCellsTop: true,
+            fixedHeader: true,
+            initComplete: function () {
+                var api = this.api();
+
+                // For each column
+                api.columns().eq(0).each(function (colIdx) {
+                    // Set the header cell to contain the input element
+                    var cell = $('.filters th').eq(
+                        $(api.column(colIdx).header()).index()
+                    );
+                    var title = $(cell).text();
+                    $(cell).html('<input type="text" placeholder="' + title + '" />');
+
+                    // On every keypress in this input
+                    $(
+                        'input',
+                        $('.filters th').eq($(api.column(colIdx).header()).index())
+                    )
+                        .off('keyup change')
+                        .on('change', function (e) {
+                            // Get the search value
+                            $(this).attr('title', $(this).val());
+                            var regexr = '({search})';
+
+                            var cursorPosition = this.selectionStart;
+                            // Search the column for that value
+                            api
+                                .column(colIdx)
+                                .search(
+                                    this.value != ''
+                                        ? regexr.replace('{search}', '(((' + this.value + ')))')
+                                        : '',
+                                    this.value != '',
+                                    this.value == ''
+                                )
+                                .draw();
+                        })
+                        .on('keyup', function (e) {
+                            e.stopPropagation();
+
+                            $(this).trigger('change');
+                            $(this)
+                                .focus()[0]
+                                .setSelectionRange(cursorPosition, cursorPosition);
+                        });
+                });
+            },
+        });
+    });
+</script>
+</html>

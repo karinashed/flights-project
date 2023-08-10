@@ -1,0 +1,238 @@
+,area_country,count
+0,"Moscow, Russia",869
+1,"St. Petersburg, Russia",620
+2,"Stavropol', Russia",330
+3,"Tatarstan, Russia",278
+4,"Sverdlovsk, Russia",274
+5,"Nizhegorod, Russia",266
+6,"Saratov, Russia",237
+7,"Antalya, Turkey",236
+8,"Krasnodar, Russia",187
+9,"Samara, Russia",184
+10,"Istanbul, Turkey",184
+11,"Kaliningrad, Russia",184
+12,"Novosibirsk, Russia",174
+13,"Armavir, Armenia",160
+14,"Perm', Russia",154
+15,"Dubay, United Arab Emirates",152
+16,"Astrakhan', Russia",137
+17,"Minsk, Belarus",125
+18,"Komi, Russia",121
+19,"Yamal-Nenets, Russia",111
+20,"Krasnoyarsk, Russia",109
+21,"Chelyabinsk, Russia",107
+22,"Volgograd, Russia",107
+23,"Murmansk, Russia",106
+24,"Khanty-Mansiy, Russia",94
+25,"Kemerovo, Russia",93
+26,"Bashkortostan, Russia",91
+27,"Kabardin-Balkar, Russia",89
+28,"Vladimir, Russia",84
+29,"Mugla, Turkey",81
+30,"Altay, Russia",76
+31,"Dushanbe, Tajikistan",71
+32,"West Kazakhstan, Kazakhstan",70
+33,"Ul'yanovsk, Russia",67
+34,"Dagestan, Russia",66
+35,"Bakı, Azerbaijan",65
+36,"Orenburg, Russia",63
+37,"Tashkent, Uzbekistan",63
+38,"People's Republic of China, People's Republic of China",62
+39,"Kirov, Russia",58
+40,"Zhambyl, Kazakhstan",55
+41,"Irkutsk, Russia",53
+42,"Chechnya, Russia",52
+43,"Tyumen', Russia",52
+44,"Leningrad, Russia",51
+45,"Almaty City, Kazakhstan",51
+46,"Omsk, Russia",48
+47,"Tomsk, Russia",39
+48,"Mtskheta-Mtianeti, Georgia",38
+49,"Karachay-Cherkess, Russia",38
+50,"Kaluga, Russia",37
+51,"Vologda, Russia",36
+52,"Qostanay, Kazakhstan",35
+53,"Udmurt, Russia",35
+54,"Tadzhikistan Territories, Tajikistan",31
+55,"Khakass, Russia",30
+56,"Sharjah, United Arab Emirates",29
+57,"Chita, Russia",29
+58,"Andijon, Uzbekistan",29
+59,"Ivanovo, Russia",28
+60,"Yaroslavl', Russia",27
+61,"Khatlon, Tajikistan",27
+62,"Arkhangel'sk, Russia",26
+63,"Kvemo Kartli, Georgia",26
+64,"Kocaeli, Turkey",24
+65,"Penza, Russia",23
+66,"Al Bahr al Ahmar, Egypt",23
+67,"Abu Dhabi, United Arab Emirates",22
+68,"Novgorod, Russia",22
+69,"Bursa, Turkey",21
+70,"Janub Sina', Egypt",21
+71,"Aqmola, Kazakhstan",21
+72,"Chuvash, Russia",21
+73,"Khabarovsk, Russia",20
+74,"Tver', Russia",17
+75,"Abkhazia, Georgia",17
+76,"Bukhoro, Uzbekistan",16
+77,"Ingush, Russia",16
+78,"Sakha (Yakutia), Russia",16
+79,"Ryazan', Russia",15
+80,"Buryat, Russia",15
+81,"Samarkand, Uzbekistan",14
+82,"LYBE - Belgrade Nikola Tesla Airport, Serbia",14
+83,"Karelia, Russia",14
+84,"Pskov, Russia",14
+85,"Mordovia, Russia",14
+86,"Delhi, India",13
+87,"South Karelia, Finland",12
+88,"North Ossetia, Russia",12
+89,"Al Qahirah, Egypt",12
+90,"Kostroma, Russia",11
+91,"Şəki, Azerbaijan",11
+92,"Almaty, Kazakhstan",11
+93,"HaMerkaz, Israel",11
+94,"Ankara, Turkey",10
+95,"Kütahya, Turkey",10
+96,"Denizli, Turkey",9
+97,"Al Muḩarraq, Bahrain",9
+98,"Vitebsk, Belarus",9
+99,"Kakheti, Georgia",9
+100,"Surkhandarya, Uzbekistan",9
+101,"Aragatsotn, Armenia",9
+102,"Mariy-El, Russia",9
+103,"Aqaba, Jordan",8
+104,"Oğuz, Azerbaijan",8
+105,"Smolensk, Russia",8
+106,"Al Farwaniyah, Kuwait",8
+107,"Nenets, Russia",8
+108,"Izmir, Turkey",8
+109,"Tehran, Iran",8
+110,"Tula, Russia",8
+111,"Ysyk-Köl, Kyrgyzstan",8
+112,"Kurgan, Russia",8
+113,"Namangan, Uzbekistan",8
+114,"Kamchatka, Russia",7
+115,"Leninabad, Tajikistan",7
+116,"Mangghystau, Kazakhstan",7
+117,"Sakhalin, Russia",7
+118,"Salyan, Azerbaijan",6
+119,"Tbilisi, Georgia",6
+120,"South Kazakhstan, Kazakhstan",6
+121,"Atyrau, Kazakhstan",6
+122,"Kalmyk, Russia",5
+123,"As Suways, Egypt",5
+124,"Qaraghandy, Kazakhstan",5
+125,"Kerman, Iran",5
+126,"Kashkadarya, Uzbekistan",4
+127,"Al Qalyubiyah, Egypt",4
+128,"ZSPD - Shanghai Pudong International Airport, People's Republic of China",4
+129,"Baghdad, Iraq",4
+130,"Maharashtra, India",4
+131,"HaDarom, Israel",4
+132,"Matanzas, Cuba",3
+133,"Serbia, Serbia",3
+134,"Ash Sharqiyah North, Oman",3
+135,"Ratnapura, Sri Lanka",3
+136,"Ferghana, Uzbekistan",3
+137,"Chaouia - Ouardigha, Morocco",3
+138,"Amman, Jordan",3
+139,"Navoi, Uzbekistan",3
+140,"Samut Prakan, Thailand",3
+141,"Muscat, Oman",3
+142,"Ağdaş, Azerbaijan",3
+143,"Flemish Brabant, Belgium",3
+144,"Kuruṇægala, Sri Lanka",3
+145,"Sousse, Tunisia",2
+146,"Brest, Belarus",2
+147,"Ad Dakhliyah, Oman",2
+148,"Chuy, Kyrgyzstan",2
+149,"East Kazakhstan, Kazakhstan",2
+150,"Manisa, Turkey",2
+151,"Ad Dakhliyah, Egypt",2
+152,"Bolu, Turkey",2
+153,"Rif Dimashq, Syria",2
+154,"Esfahan, Iran",2
+155,"Lankaran, Azerbaijan",2
+156,"Kafr ash Shaykh, Egypt",2
+157,"Hormozgan, Iran",2
+158,"Sind, Pakistan",2
+159,"Tambov, Russia",2
+160,"Ad Dawhah, Qatar",2
+161,"Jalal-Abad, Kyrgyzstan",2
+162,"ZUCK - Chongqing Jiangbei International Airport, People's Republic of China",2
+163,"Konya, Turkey",2
+164,"Amur, Russia",2
+165,"Isparta, Turkey",2
+166,"Aydin, Turkey",2
+167,"Al Batnah North, Oman",2
+168,"Al Batnah South, Oman",2
+169,"Manica, Mozambique",2
+170,"Pointe La Rue, Seychelles",2
+171,"Balkan, Turkmenistan",2
+172,"Töv, Mongolia",2
+173,"Burdur, Turkey",2
+174,"Ajaria, Georgia",2
+175,"Ash Sharqiyah, Saudi Arabia",2
+176,"Shirak, Armenia",1
+177,"Nueva Esparta, Venezuela",1
+178,"Biləsuvar, Azerbaijan",1
+179,"Chardzhou, Turkmenistan",1
+180,"Qazvin, Iran",1
+181,"South Chungcheong, South Korea",1
+182,"Adygey, Russia",1
+183,"Shamal Sina', Egypt",1
+184,"Palestine, Palestine",1
+185,"Al Quassim, Saudi Arabia",1
+186,"Eskisehir, Turkey",1
+187,"Ar Riyad, Saudi Arabia",1
+188,"Çanakkale, Turkey",1
+189,"ZBAA - Beijing Capital International Airport, People's Republic of China",1
+190,"ZGGG - Guangzhou Baiyun International Airport, People's Republic of China",1
+191,"Dhaka, Bangladesh",1
+192,"Lipetsk, Russia",1
+193,"Ararat, Armenia",1
+194,"ZUUU - Chengdu Shuangliu International Airport, People's Republic of China",1
+195,"Akershus, Norway",1
+196,"Gegharkunik, Armenia",1
+197,"Daşkəsən, Azerbaijan",1
+198,"Valga, Estonia",1
+199,"Warmian-Masurian, Poland",1
+200,"Aglonas, Latvia",1
+201,"Karabük, Turkey",1
+202,"Subcarpathian, Poland",1
+203,"Madhya Pradesh, India",1
+204,"Bayern, Germany",1
+205,"Haryana, India",1
+206,"Lublin, Poland",1
+207,"Alborz, Iran",1
+208,"Gilan, Iran",1
+209,"Bandundu, Democratic Republic of the Congo",1
+210,"Al Gharbiyah, Egypt",1
+211,"Kauno, Lithuania",1
+212,"Kayseri, Turkey",1
+213,"Aqtöbe, Kazakhstan",1
+214,"Blida, Algeria",1
+215,"Hessen, Germany",1
+216,"Kastamonu, Turkey",1
+217,"Erzincan, Turkey",1
+218,"Kherson, Ukraine",1
+219,"Podlachian, Poland",1
+220,"Alytaus, Lithuania",1
+221,"Lori, Armenia",1
+222,"Al Wusta, Oman",1
+223,"Attiki, Greece",1
+224,"İsmayıllı, Azerbaijan",1
+225,"Hajigabul, Azerbaijan",1
+226,"Al-Basrah, Iraq",1
+227,"Al Minufiyah, Egypt",1
+228,"Qəbələ, Azerbaijan",1
+229,"Balikesir, Turkey",1
+230,"Al Jizah, Egypt",1
+231,"Abşeron, Azerbaijan",1
+232,"ZSHC - Hangzhou Xiaoshan International Airport, People's Republic of China",1
+233,"Ialoveni, Moldova",1
+234,"Shida Kartli, Georgia",1
+235,"Cluj, Romania",1
+236,"Göyçay, Azerbaijan",1

@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Enriching ADSB Flight Data - Use tail number to analyze where each plane was registered</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./clean-original.html">Notebooks</a></li><li class="breadcrumb-item"><a href="./plane-registration-check.html">Plane Registration Check</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Enriching ADSB Flight Data</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Notebooks</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clean-original.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Clean Original ADSB-Exchange Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./radarbox_scrape.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Scrape Radarbox</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./plane-registration-check.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Plane Registration Check</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chat-gpt.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Ask ChatGPT</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./wrap-up.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pull it All Together</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Tables</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./country_type_table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">All planes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./full_flight_table.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">All flights</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#make-new-column-in-dataframe-for-beginning-characters-of-tail-number" id="toc-make-new-column-in-dataframe-for-beginning-characters-of-tail-number" class="nav-link active" data-scroll-target="#make-new-column-in-dataframe-for-beginning-characters-of-tail-number">Make new column in DataFrame for beginning characters of tail number</a>
+  <ul class="collapse">
+  <li><a href="#print-all-planes-where-registration-country-cant-be-determined-automatically" id="toc-print-all-planes-where-registration-country-cant-be-determined-automatically" class="nav-link" data-scroll-target="#print-all-planes-where-registration-country-cant-be-determined-automatically">Print all planes where registration country can’t be determined automatically</a></li>
+  </ul></li>
+  <li><a href="#scrape-the-wikipedia-page-that-defines-which-country-each-registration-prefix-belongs-to" id="toc-scrape-the-wikipedia-page-that-defines-which-country-each-registration-prefix-belongs-to" class="nav-link" data-scroll-target="#scrape-the-wikipedia-page-that-defines-which-country-each-registration-prefix-belongs-to">Scrape the Wikipedia page that defines which country each registration prefix belongs to</a>
+  <ul class="collapse">
+  <li><a href="#make-new-dataframe-that-specifies-where-each-plane-in-the-data-was-registered-based-on-the-registration-prefix" id="toc-make-new-dataframe-that-specifies-where-each-plane-in-the-data-was-registered-based-on-the-registration-prefix" class="nav-link" data-scroll-target="#make-new-dataframe-that-specifies-where-each-plane-in-the-data-was-registered-based-on-the-registration-prefix">Make new DataFrame that specifies where each plane in the data was registered based on the registration prefix</a></li>
+  </ul></li>
+  <li><a href="#breakdown-where-the-planes-were-registered" id="toc-breakdown-where-the-planes-were-registered" class="nav-link" data-scroll-target="#breakdown-where-the-planes-were-registered">Breakdown where the planes were registered</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Use tail number to analyze where each plane was registered</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> bs4 <span class="im">import</span> BeautifulSoup</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"/Users/karinashedrofsky/LEDE_2023/flights-project/csvs/all_plane_info.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">icao</th>
+<th data-quarto-table-cell-role="th">tail</th>
+<th data-quarto-table-cell-role="th">plane</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>151d9c</td>
+<td>RA-73116</td>
+<td>Boeing 737-8LJ</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>738057</td>
+<td>4X-EHI</td>
+<td>Boeing 737-958ER</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15206f</td>
+<td>RA-73839</td>
+<td>Airbus A321-251NX</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>151d77</td>
+<td>RA-73079</td>
+<td>Boeing 767-3Y0ER</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>896411</td>
+<td>A6-AOE</td>
+<td>Airbus A320-214</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1047</td>
+<td>155c35</td>
+<td>RA-89141</td>
+<td>Sukhoi SuperJet 100-95B</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1048</td>
+<td>152015</td>
+<td>RA-73749</td>
+<td>Airbus A320-214</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1049</td>
+<td>151ffa</td>
+<td>RA-73722</td>
+<td>Airbus A321-211</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1050</td>
+<td>151ed3</td>
+<td>RA-73427</td>
+<td>Airbus A320-271N</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1051</td>
+<td>4bb855</td>
+<td>TC-NBU</td>
+<td>Airbus A320-251N</td>
+</tr>
+</tbody>
+</table>
+
+<p>1052 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<section id="make-new-column-in-dataframe-for-beginning-characters-of-tail-number" class="level2">
+<h2 class="anchored" data-anchor-id="make-new-column-in-dataframe-for-beginning-characters-of-tail-number">Make new column in DataFrame for beginning characters of tail number</h2>
+<p>Usually the beginning of a tail number indicates the registration country</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the "tail" column contains a hyphen</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>has_hyphen <span class="op">=</span> df[<span class="st">'tail'</span>].<span class="bu">str</span>.contains(<span class="st">'-'</span>, na<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the characters before the hyphen </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>extracted_tail <span class="op">=</span> df[<span class="st">'tail'</span>].<span class="bu">str</span>.extract(<span class="vs">r'^(.*?)(?:-|$)'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For rows without hyphen, extract the first two letters that come *before numbers* in the "tail" column</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>extracted_first_two_letters <span class="op">=</span> df.loc[<span class="op">~</span>has_hyphen, <span class="st">'tail'</span>].<span class="bu">str</span>.extract(<span class="vs">r'^([A-Za-z]</span><span class="sc">{2}</span><span class="vs">)\d</span><span class="sc">{2}</span><span class="vs">'</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine the extracted values and store them in a new "tail_prefix" column</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'tail_prefix'</span>] <span class="op">=</span> extracted_tail.where(has_hyphen, extracted_first_two_letters)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Set the values in the "tail_prefix" column to empty strings for rows that don't have hyphen or 2 letters followed by numbers</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>df.loc[<span class="op">~</span>has_hyphen <span class="op">&amp;</span> df[<span class="st">'tail_prefix'</span>].isna(), <span class="st">'tail_prefix'</span>] <span class="op">=</span> <span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">icao</th>
+<th data-quarto-table-cell-role="th">tail</th>
+<th data-quarto-table-cell-role="th">plane</th>
+<th data-quarto-table-cell-role="th">tail_prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>151d9c</td>
+<td>RA-73116</td>
+<td>Boeing 737-8LJ</td>
+<td>RA</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>738057</td>
+<td>4X-EHI</td>
+<td>Boeing 737-958ER</td>
+<td>4X</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>15206f</td>
+<td>RA-73839</td>
+<td>Airbus A321-251NX</td>
+<td>RA</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>151d77</td>
+<td>RA-73079</td>
+<td>Boeing 767-3Y0ER</td>
+<td>RA</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>896411</td>
+<td>A6-AOE</td>
+<td>Airbus A320-214</td>
+<td>A6</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1047</td>
+<td>155c35</td>
+<td>RA-89141</td>
+<td>Sukhoi SuperJet 100-95B</td>
+<td>RA</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1048</td>
+<td>152015</td>
+<td>RA-73749</td>
+<td>Airbus A320-214</td>
+<td>RA</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1049</td>
+<td>151ffa</td>
+<td>RA-73722</td>
+<td>Airbus A321-211</td>
+<td>RA</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1050</td>
+<td>151ed3</td>
+<td>RA-73427</td>
+<td>Airbus A320-271N</td>
+<td>RA</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1051</td>
+<td>4bb855</td>
+<td>TC-NBU</td>
+<td>Airbus A320-251N</td>
+<td>TC</td>
+</tr>
+</tbody>
+</table>
+
+<p>1052 rows × 4 columns</p>
+</div>
+</div>
+</div>
+<section id="print-all-planes-where-registration-country-cant-be-determined-automatically" class="level3">
+<h3 class="anchored" data-anchor-id="print-all-planes-where-registration-country-cant-be-determined-automatically">Print all planes where registration country can’t be determined automatically</h3>
+<p>These could be interesting, so are worth checking manually</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>outlier_tails <span class="op">=</span> df[df[<span class="st">'tail_prefix'</span>] <span class="op">==</span> <span class="st">''</span>]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>outlier_tails</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">icao</th>
+<th data-quarto-table-cell-role="th">tail</th>
+<th data-quarto-table-cell-role="th">plane</th>
+<th data-quarto-table-cell-role="th">tail_prefix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">86</td>
+<td>60003c</td>
+<td>701</td>
+<td>Airbus A319-132</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">176</td>
+<td>155c40</td>
+<td>89152</td>
+<td>Sukhoi Superjet 100-95B</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">304</td>
+<td>466b38</td>
+<td>NaN</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">514</td>
+<td>032091</td>
+<td>NaN</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">580</td>
+<td>053977</td>
+<td>VARIOUS</td>
+<td>Several Different Aircraft</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">682</td>
+<td>600be9</td>
+<td>NaN</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">718</td>
+<td>ea000f</td>
+<td>NaN</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">775</td>
+<td>26002b</td>
+<td>NaN</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">837</td>
+<td>1f3395</td>
+<td>78741</td>
+<td>Ilyushin Il-78M-90A</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Quick Google search of 053977 shows it may be a NATO plane</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/nato.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">https://discussions.flightaware.com/t/strange-id-053977-nato02-around-eindhoven-nl/30149</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="scrape-the-wikipedia-page-that-defines-which-country-each-registration-prefix-belongs-to" class="level2">
+<h2 class="anchored" data-anchor-id="scrape-the-wikipedia-page-that-defines-which-country-each-registration-prefix-belongs-to">Scrape the Wikipedia page that defines which country each registration prefix belongs to</h2>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>prefix_html <span class="op">=</span> requests.get(<span class="st">"https://en.wikipedia.org/wiki/List_of_aircraft_registration_prefixes"</span>).text</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>prefix_soup <span class="op">=</span> BeautifulSoup(prefix_html)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#select the right table on the page</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>table <span class="op">=</span> prefix_soup.select(<span class="st">"table"</span>)[<span class="dv">1</span>]</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>table.text[:<span class="dv">100</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>'\n\nCountry or region\n\nRegistration prefix\n\nPresentation and notes\n\n\nAfghanistan\n\nYA[1]\n\nYA-AAA to YA-'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#select the first row from the table</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>header <span class="op">=</span> table.select(<span class="st">"tr"</span>)[<span class="dv">0</span>]</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>&lt;tr&gt;
+&lt;th scope="col"&gt;Country or region
+&lt;/th&gt;
+&lt;th scope="col"&gt;Registration prefix
+&lt;/th&gt;
+&lt;th class="unsortable" scope="col"&gt;Presentation and notes
+&lt;/th&gt;&lt;/tr&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#extract the column names from the header</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>prefix_header <span class="op">=</span> [ head.text.strip() <span class="cf">for</span> head <span class="kw">in</span> header.select(<span class="st">"th"</span>) ]</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>prefix_header</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>['Country or region', 'Registration prefix', 'Presentation and notes']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#select all non-header rows from the table</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>row_els <span class="op">=</span> table.select(<span class="st">"tbody tr"</span>)[<span class="dv">1</span>:] <span class="co">#skip the first row, which is the header</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(row_els)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>240</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#extract the text from each row into a python list</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>prefix_entries <span class="op">=</span> [</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    [cell.text.strip() <span class="cf">for</span> cell <span class="kw">in</span> row.select(<span class="st">"td"</span>)]</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> row <span class="kw">in</span> row_els</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>prefix_entries[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>['Afghanistan', 'YA[1]', 'YA-AAA to YA-ZZZ.']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#turn the extracted data into a dataframe</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>prefix_df <span class="op">=</span> pd.DataFrame(prefix_entries, columns<span class="op">=</span>prefix_header)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>prefix_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Country or region</th>
+<th data-quarto-table-cell-role="th">Registration prefix</th>
+<th data-quarto-table-cell-role="th">Presentation and notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Afghanistan</td>
+<td>YA[1]</td>
+<td>YA-AAA to YA-ZZZ.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Albania</td>
+<td>ZA[2]</td>
+<td>ZA-AAA to ZA-ZZZ.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Algeria</td>
+<td>7T[3]</td>
+<td>7T-VAA to 7T-VZZ Civilian.\n7T-WAA to 7T-WZZ M...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Andorra</td>
+<td>C3[2]</td>
+<td>C3-AAA to C3-ZZZ</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Angola</td>
+<td>D2[3]</td>
+<td>D2-AAA to D2-ZZZ. Colonial allocation CR-L.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#drop the brackets and number within each bracket from the 'Registration prefix' column</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>prefix_df[<span class="st">'Registration prefix'</span>] <span class="op">=</span> prefix_df[<span class="st">'Registration prefix'</span>].<span class="bu">str</span>.replace(<span class="vs">r'\s*\[.*?\]$'</span>, <span class="st">''</span>, regex<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>prefix_df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Country or region</th>
+<th data-quarto-table-cell-role="th">Registration prefix</th>
+<th data-quarto-table-cell-role="th">Presentation and notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Afghanistan</td>
+<td>YA</td>
+<td>YA-AAA to YA-ZZZ.</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Albania</td>
+<td>ZA</td>
+<td>ZA-AAA to ZA-ZZZ.</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Algeria</td>
+<td>7T</td>
+<td>7T-VAA to 7T-VZZ Civilian.\n7T-WAA to 7T-WZZ M...</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Andorra</td>
+<td>C3</td>
+<td>C3-AAA to C3-ZZZ</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Angola</td>
+<td>D2</td>
+<td>D2-AAA to D2-ZZZ. Colonial allocation CR-L.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="make-new-dataframe-that-specifies-where-each-plane-in-the-data-was-registered-based-on-the-registration-prefix" class="level3">
+<h3 class="anchored" data-anchor-id="make-new-dataframe-that-specifies-where-each-plane-in-the-data-was-registered-based-on-the-registration-prefix">Make new DataFrame that specifies where each plane in the data was registered based on the registration prefix</h3>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>reg_country_df <span class="op">=</span> pd.merge(df, prefix_df, left_on<span class="op">=</span><span class="st">'tail_prefix'</span>, right_on<span class="op">=</span><span class="st">'Registration prefix'</span>, how<span class="op">=</span><span class="st">'inner'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Drop the extra columns after the merge</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>reg_country_df <span class="op">=</span> reg_country_df.drop(columns<span class="op">=</span>[<span class="st">"Registration prefix"</span>, <span class="st">"Presentation and notes"</span>])</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#Make sure the country listed for the blank tail_prefix is also blank</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>reg_country_df.loc[reg_country_df[<span class="st">'tail_prefix'</span>] <span class="op">==</span> <span class="st">''</span>, <span class="st">'Country or region'</span>] <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>reg_country_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">icao</th>
+<th data-quarto-table-cell-role="th">tail</th>
+<th data-quarto-table-cell-role="th">plane</th>
+<th data-quarto-table-cell-role="th">tail_prefix</th>
+<th data-quarto-table-cell-role="th">Country or region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>151d9c</td>
+<td>RA-73116</td>
+<td>Boeing 737-8LJ</td>
+<td>RA</td>
+<td>Russia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>15206f</td>
+<td>RA-73839</td>
+<td>Airbus A321-251NX</td>
+<td>RA</td>
+<td>Russia</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>151d77</td>
+<td>RA-73079</td>
+<td>Boeing 767-3Y0ER</td>
+<td>RA</td>
+<td>Russia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>14f110</td>
+<td>RA-61712</td>
+<td>Antonov An-148-100EA</td>
+<td>RA</td>
+<td>Russia</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>151e32</td>
+<td>RA-73266</td>
+<td>Boeing 737-83N</td>
+<td>RA</td>
+<td>Russia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1078</td>
+<td>51408c</td>
+<td>4L-GTI</td>
+<td>Boeing 737-7CT</td>
+<td>4L</td>
+<td>Georgia</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1079</td>
+<td>09a055</td>
+<td>C5-SUV</td>
+<td>Embraer ERJ 135BJ Legacy 650</td>
+<td>C5</td>
+<td>Gambia</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1080</td>
+<td>504e64</td>
+<td>ER-00006</td>
+<td>Airbus A320-232</td>
+<td>ER</td>
+<td>Moldova</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1081</td>
+<td>515313</td>
+<td>EY-787</td>
+<td>Boeing 737-8GJ</td>
+<td>EY</td>
+<td>Tajikistan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1082</td>
+<td>06a0b3</td>
+<td>A7-BCO</td>
+<td>Boeing 787-8</td>
+<td>A7</td>
+<td>Qatar</td>
+</tr>
+</tbody>
+</table>
+
+<p>1083 rows × 5 columns</p>
+</div>
+</div>
+</div>
+<p>I noticed that the new DataFrame has extra rows, and realize the tail prefix ‘B’ is being attributed to both China and Taiwan</p>
+<div class="cell" data-execution_count="51">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>reg_country_df[reg_country_df[<span class="st">'tail_prefix'</span>] <span class="op">==</span> <span class="st">'B'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="51">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">icao</th>
+<th data-quarto-table-cell-role="th">tail</th>
+<th data-quarto-table-cell-role="th">plane</th>
+<th data-quarto-table-cell-role="th">tail_prefix</th>
+<th data-quarto-table-cell-role="th">Country or region</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">891</td>
+<td>78122f</td>
+<td>B-8862</td>
+<td>Airbus A330-343E</td>
+<td>B</td>
+<td>China</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">892</td>
+<td>78122f</td>
+<td>B-8862</td>
+<td>Airbus A330-343E</td>
+<td>B</td>
+<td>Taiwan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">893</td>
+<td>78076e</td>
+<td>B-2088</td>
+<td>Boeing 777-39LER</td>
+<td>B</td>
+<td>China</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">894</td>
+<td>78076e</td>
+<td>B-2088</td>
+<td>Boeing 777-39LER</td>
+<td>B</td>
+<td>Taiwan</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">895</td>
+<td>781094</td>
+<td>B-8678</td>
+<td>Airbus A330-343E</td>
+<td>B</td>
+<td>China</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">966</td>
+<td>78086c</td>
+<td>B-2031</td>
+<td>Boeing 777-39LER</td>
+<td>B</td>
+<td>Taiwan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">967</td>
+<td>780ef8</td>
+<td>B-8287</td>
+<td>Airbus A330-343E</td>
+<td>B</td>
+<td>China</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">968</td>
+<td>780ef8</td>
+<td>B-8287</td>
+<td>Airbus A330-343E</td>
+<td>B</td>
+<td>Taiwan</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">969</td>
+<td>780c9e</td>
+<td>B-2006</td>
+<td>Boeing 777-39LER</td>
+<td>B</td>
+<td>China</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">970</td>
+<td>780c9e</td>
+<td>B-2006</td>
+<td>Boeing 777-39LER</td>
+<td>B</td>
+<td>Taiwan</td>
+</tr>
+</tbody>
+</table>
+
+<p>80 rows × 5 columns</p>
+</div>
+</div>
+</div>
+<p>According to the Wikipedia page, planes registered in China have tail number B- followed by 4 numbers, and planes registered in Taiwan have B- followed by 5 numbers. Let’s fix it…</p>
+<div class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Check how many tail numbers in the df that start with 'B-' are followed by 4 characters</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>count_4_characters <span class="op">=</span> df[df[<span class="st">'tail'</span>].<span class="bu">str</span>.match(<span class="vs">r'^B-\w</span><span class="sc">{4}</span><span class="vs">$'</span>, na<span class="op">=</span><span class="va">False</span>)].shape[<span class="dv">0</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>count_4_characters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="63">
+<pre><code>40</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Check how many tail numbers in the df that start with 'B-' are followed by 5 characters</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>count_5_characters <span class="op">=</span> df[df[<span class="st">'tail'</span>].<span class="bu">str</span>.match(<span class="vs">r'^B-\w</span><span class="sc">{5}</span><span class="vs">$'</span>, na<span class="op">=</span><span class="va">False</span>)].shape[<span class="dv">0</span>]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>count_5_characters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<pre><code>0</code></pre>
+</div>
+</div>
+<p>Since all are followed by 4 characters, we can conclude they are registered in China, and not Taiwan</p>
+<div class="cell" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Drop row from reg_country_df where 'Country or region' = Taiwan</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>reg_country_df <span class="op">=</span> reg_country_df[(reg_country_df[<span class="st">'Country or region'</span>] <span class="op">!=</span> <span class="st">'Taiwan'</span>)]</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>reg_country_df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+Index: 1043 entries, 0 to 1082
+Data columns (total 5 columns):
+ #   Column             Non-Null Count  Dtype 
+---  ------             --------------  ----- 
+ 0   icao               1043 non-null   object
+ 1   tail               1038 non-null   object
+ 2   plane              1043 non-null   object
+ 3   tail_prefix        1043 non-null   object
+ 4   Country or region  1043 non-null   object
+dtypes: object(5)
+memory usage: 48.9+ KB</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Export as csv</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>reg_country_df.to_csv(<span class="st">"/Users/karinashedrofsky/LEDE_2023/flights-project/csvs/reg_country.csv"</span>, index <span class="op">=</span> <span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="breakdown-where-the-planes-were-registered" class="level2">
+<h2 class="anchored" data-anchor-id="breakdown-where-the-planes-were-registered">Breakdown where the planes were registered</h2>
+<div class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>registration_counts <span class="op">=</span> reg_country_df.groupby(<span class="st">'Country or region'</span>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>).sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>registration_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="69">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Country or region</th>
+<th data-quarto-table-cell-role="th">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">23</td>
+<td>Russia</td>
+<td>725</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">28</td>
+<td>Turkey</td>
+<td>71</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>United Arab Emirates</td>
+<td>64</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">6</td>
+<td>China</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">31</td>
+<td>Uzbekistan</td>
+<td>16</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Kazakhstan</td>
+<td>14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>Egypt</td>
+<td>13</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>Belarus</td>
+<td>11</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Armenia</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">0</td>
+<td></td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Azerbaijan</td>
+<td>9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>Iran</td>
+<td>8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>Serbia</td>
+<td>7</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">18</td>
+<td>Kyrgyzstan</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Iraq</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Israel</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">17</td>
+<td>Kuwait</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>Turkmenistan</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>Morocco</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>Oman</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Algeria</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>Georgia</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>Ethiopia</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>Syria</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Bahrain</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>Tunisia</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7</td>
+<td>Czech Republic</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Gambia</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>Tajikistan</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">22</td>
+<td>Qatar</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">19</td>
+<td>Moldova</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12</td>
+<td>Germany</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>Venezuela</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">©2023, Karina Shedrofsky</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/karinashed/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/karinashed">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
