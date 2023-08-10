@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Enriching ADSB Flight Data - Clean original ADSB-Exchange Flight Data</title>
+<title>Enriching ADS-B Flight Data - Clean original ADSB-Exchange Flight Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -125,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Enriching ADSB Flight Data</a> 
+      <a href="./">Enriching ADS-B Flight Data</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -260,8 +260,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="import-flight-data">Import flight data</h3>
 <p>All flights from Moscow between May 24 - June 24, 2023 (pulled from Icarus)</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"/Users/karinashedrofsky/LEDE_2023/flights-project/csvs/icarus_flights.csv"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"/Users/karinashedrofsky/LEDE_2023/flights-project/csvs/icarus_flights.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
 RangeIndex: 9026 entries, 0 to 9025
@@ -289,8 +291,8 @@ memory usage: 705.3+ KB</code></pre>
 <h3 class="anchored" data-anchor-id="show-all-origin-locations">Show all origin locations</h3>
 <p>The “Moscow” search on Icarus includes flights from cities near Moscow</p>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>origin_counts <span class="op">=</span> df.groupby(<span class="st">'origin_area'</span>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>origin_counts.sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>origin_counts <span class="op">=</span> df.groupby(<span class="st">'origin_area'</span>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>origin_counts.sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
@@ -368,22 +370,21 @@ memory usage: 705.3+ KB</code></pre>
 <section id="group-together-moskovsskaya-and-moskva-to-make-moscow" class="level4">
 <h4 class="anchored" data-anchor-id="group-together-moskovsskaya-and-moskva-to-make-moscow">Group together Moskovsskaya and Moskva to make “Moscow”</h4>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>replacements <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Moskovsskaya'</span>: <span class="st">'Moscow'</span>,</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Moskva'</span>: <span class="st">'Moscow'</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'origin_area'</span>] <span class="op">=</span> df[<span class="st">'origin_area'</span>].replace(replacements)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>replacements <span class="op">=</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Moskovsskaya'</span>: <span class="st">'Moscow'</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Moskva'</span>: <span class="st">'Moscow'</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'origin_area'</span>] <span class="op">=</span> df[<span class="st">'origin_area'</span>].replace(replacements)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="show-all-destination-countries" class="level3">
 <h3 class="anchored" data-anchor-id="show-all-destination-countries">Show all destination countries</h3>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>dest_country_counts <span class="op">=</span> df.groupby(<span class="st">'destination_country'</span>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>dest_country_counts.sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>dest_country_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dest_country_counts <span class="op">=</span> df.groupby(<span class="st">'destination_country'</span>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dest_country_counts.sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -398,98 +399,98 @@ memory usage: 705.3+ KB</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>Al Muḩarraq</td>
-<td>9</td>
+<td>Russia</td>
+<td>6213</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>Algeria</td>
-<td>1</td>
+<td>Turkey</td>
+<td>602</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
+<td>Kazakhstan</td>
+<td>270</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>United Arab Emirates</td>
+<td>203</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
 <td>Armenia</td>
 <td>173</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>Azerbaijan</td>
-<td>102</td>
+<td data-quarto-table-cell-role="th">5</td>
+<td>Uzbekistan</td>
+<td>149</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>Bangladesh</td>
-<td>1</td>
+<td data-quarto-table-cell-role="th">6</td>
+<td>Tajikistan</td>
+<td>136</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">5</td>
+<td data-quarto-table-cell-role="th">7</td>
 <td>Belarus</td>
 <td>136</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">6</td>
-<td>Belgium</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">7</td>
-<td>Cuba</td>
-<td>3</td>
-</tr>
-<tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
-<td>Democratic Republic of the Congo</td>
-<td>1</td>
+<td>Azerbaijan</td>
+<td>102</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
-<td>Egypt</td>
-<td>73</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">10</td>
-<td>Estonia</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">11</td>
-<td>Finland</td>
-<td>12</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">12</td>
 <td>Georgia</td>
 <td>99</td>
 </tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">13</td>
-<td>Germany</td>
-<td>2</td>
-</tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">14</td>
-<td>Greece</td>
-<td>1</td>
+<td data-quarto-table-cell-role="th">10</td>
+<td>Egypt</td>
+<td>73</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">15</td>
-<td>India</td>
-<td>19</td>
+<td data-quarto-table-cell-role="th">11</td>
+<td>People's Republic of China</td>
+<td>72</td>
 </tr>
 <tr class="odd">
-<td data-quarto-table-cell-role="th">16</td>
+<td data-quarto-table-cell-role="th">12</td>
 <td>Iran</td>
 <td>20</td>
 </tr>
 <tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>India</td>
+<td>19</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>Serbia</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>Israel</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>Oman</td>
+<td>13</td>
+</tr>
+<tr class="even">
 <td data-quarto-table-cell-role="th">17</td>
-<td>Iraq</td>
-<td>5</td>
+<td>Finland</td>
+<td>12</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">18</td>
-<td>Israel</td>
-<td>15</td>
+<td>Kyrgyzstan</td>
+<td>12</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">19</td>
@@ -498,8 +499,8 @@ memory usage: 705.3+ KB</code></pre>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">20</td>
-<td>Kazakhstan</td>
-<td>270</td>
+<td>Al Muḩarraq</td>
+<td>9</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">21</td>
@@ -508,28 +509,28 @@ memory usage: 705.3+ KB</code></pre>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">22</td>
-<td>Kyrgyzstan</td>
-<td>12</td>
+<td>Sri Lanka</td>
+<td>6</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">23</td>
-<td>Latvia</td>
-<td>1</td>
+<td>Iraq</td>
+<td>5</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">24</td>
-<td>Lithuania</td>
-<td>2</td>
+<td>Saudi Arabia</td>
+<td>4</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">25</td>
-<td>Moldova</td>
-<td>1</td>
+<td>Poland</td>
+<td>4</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">26</td>
-<td>Mongolia</td>
-<td>2</td>
+<td>Thailand</td>
+<td>3</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">27</td>
@@ -538,123 +539,123 @@ memory usage: 705.3+ KB</code></pre>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">28</td>
-<td>Mozambique</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">29</td>
-<td>Norway</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">30</td>
-<td>Oman</td>
-<td>13</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">31</td>
-<td>Pakistan</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">32</td>
-<td>Palestine</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">33</td>
-<td>People's Republic of China</td>
-<td>72</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">34</td>
-<td>Poland</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">35</td>
-<td>Qatar</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">36</td>
-<td>Romania</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">37</td>
-<td>Russia</td>
-<td>6213</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">38</td>
-<td>Saudi Arabia</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">39</td>
-<td>Serbia</td>
-<td>17</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">40</td>
-<td>Seychelles</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">41</td>
-<td>South Korea</td>
-<td>1</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">42</td>
-<td>Sri Lanka</td>
-<td>6</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">43</td>
-<td>Syria</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">44</td>
-<td>Tajikistan</td>
-<td>136</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">45</td>
-<td>Thailand</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">46</td>
-<td>Tunisia</td>
-<td>2</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">47</td>
-<td>Turkey</td>
-<td>602</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">48</td>
 <td>Turkmenistan</td>
 <td>3</td>
 </tr>
 <tr class="even">
-<td data-quarto-table-cell-role="th">49</td>
+<td data-quarto-table-cell-role="th">29</td>
+<td>Cuba</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>Belgium</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>Syria</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>Qatar</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>Seychelles</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">34</td>
+<td>Tunisia</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">35</td>
+<td>Mongolia</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">36</td>
+<td>Lithuania</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">37</td>
+<td>Pakistan</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">38</td>
+<td>Mozambique</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">39</td>
+<td>Germany</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">40</td>
+<td>Greece</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">41</td>
+<td>Bangladesh</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">42</td>
+<td>Democratic Republic of the Congo</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">43</td>
 <td>Ukraine</td>
 <td>1</td>
 </tr>
 <tr class="odd">
+<td data-quarto-table-cell-role="th">44</td>
+<td>Estonia</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">45</td>
+<td>Romania</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">46</td>
+<td>Latvia</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">47</td>
+<td>Palestine</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">48</td>
+<td>Moldova</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">49</td>
+<td>Algeria</td>
+<td>1</td>
+</tr>
+<tr class="odd">
 <td data-quarto-table-cell-role="th">50</td>
-<td>United Arab Emirates</td>
-<td>203</td>
+<td>South Korea</td>
+<td>1</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">51</td>
-<td>Uzbekistan</td>
-<td>149</td>
+<td>Norway</td>
+<td>1</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">52</td>
@@ -670,11 +671,10 @@ memory usage: 705.3+ KB</code></pre>
 </section>
 <section id="all-destination-areas" class="level3">
 <h3 class="anchored" data-anchor-id="all-destination-areas">All destination ‘areas’</h3>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dest_area_counts <span class="op">=</span> df.groupby(<span class="st">'destination_area'</span>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>dest_area_counts.sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>dest_area_counts.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dest_area_counts <span class="op">=</span> df.groupby(<span class="st">'destination_area'</span>).size().reset_index(name<span class="op">=</span><span class="st">'count'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dest_area_counts.sort_values(by<span class="op">=</span><span class="st">'count'</span>, ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -689,32 +689,63 @@ memory usage: 705.3+ KB</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>Abkhazia</td>
-<td>17</td>
+<td>City of St. Petersburg</td>
+<td>620</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>Abu Dhabi</td>
-<td>22</td>
+<td>Moskovsskaya</td>
+<td>503</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>Abşeron</td>
-<td>1</td>
+<td>Moskva</td>
+<td>366</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>Ad Dakhliyah</td>
-<td>2</td>
+<td>Stavropol'</td>
+<td>330</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>Ad Daqahliyah</td>
-<td>2</td>
+<td>Tatarstan</td>
+<td>278</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">234</td>
+<td>Bayern</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">235</td>
+<td>South Chungcheong</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">236</td>
+<td>Al Wusta</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">237</td>
+<td>Al Quassim</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">238</td>
+<td>Hessen</td>
+<td>1</td>
 </tr>
 </tbody>
 </table>
 
+<p>239 rows × 2 columns</p>
 </div>
 </div>
 </div>
@@ -722,21 +753,21 @@ memory usage: 705.3+ KB</code></pre>
 <section id="clean-the-destination-names-in-the-df" class="level3">
 <h3 class="anchored" data-anchor-id="clean-the-destination-names-in-the-df">Clean the destination names in the df</h3>
 <div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>replacements <span class="op">=</span> {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Moskovsskaya'</span>: <span class="st">'Moscow'</span>,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Moskva'</span>: <span class="st">'Moscow'</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'City of St. Petersburg'</span>: <span class="st">'St. Petersburg'</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Ad Daqahliyah'</span>: <span class="st">'Ad Dakhliyah'</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>df.loc[:, <span class="st">'destination_area'</span>] <span class="op">=</span> df[<span class="st">'destination_area'</span>].replace(replacements)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>replacements <span class="op">=</span> {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Moskovsskaya'</span>: <span class="st">'Moscow'</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Moskva'</span>: <span class="st">'Moscow'</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'City of St. Petersburg'</span>: <span class="st">'St. Petersburg'</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Ad Daqahliyah'</span>: <span class="st">'Ad Dakhliyah'</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>df.loc[:, <span class="st">'destination_area'</span>] <span class="op">=</span> df[<span class="st">'destination_area'</span>].replace(replacements)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>replacements <span class="op">=</span> {</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Al Muḩarraq'</span>: <span class="st">'Bahrain'</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>df.loc[:,<span class="st">'destination_country'</span>] <span class="op">=</span> df[<span class="st">'destination_country'</span>].replace(replacements)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>replacements <span class="op">=</span> {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Al Muḩarraq'</span>: <span class="st">'Bahrain'</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>df.loc[:,<span class="st">'destination_country'</span>] <span class="op">=</span> df[<span class="st">'destination_country'</span>].replace(replacements)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -745,12 +776,12 @@ memory usage: 705.3+ KB</code></pre>
 <section id="make-new-df-that-combines-area-and-country-for-map-viz" class="level3">
 <h3 class="anchored" data-anchor-id="make-new-df-that-combines-area-and-country-for-map-viz">Make new df that combines area and country for map viz</h3>
 <div class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'area_country'</span>] <span class="op">=</span> df[<span class="st">'destination_area'</span>] <span class="op">+</span> <span class="st">', '</span> <span class="op">+</span> df[<span class="st">'destination_country'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'area_country'</span>] <span class="op">=</span> df[<span class="st">'destination_area'</span>] <span class="op">+</span> <span class="st">', '</span> <span class="op">+</span> df[<span class="st">'destination_country'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>desintation_counts_df <span class="op">=</span> df[<span class="st">"area_country"</span>].value_counts().reset_index()</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>desintation_counts_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>desintation_counts_df <span class="op">=</span> df[<span class="st">"area_country"</span>].value_counts().reset_index()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>desintation_counts_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
 <div>
 
@@ -831,11 +862,11 @@ memory usage: 705.3+ KB</code></pre>
 <script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r=0;r<e.length;r++)if(e[r].contentWindow===a.source){var i=a.data["datawrapper-height"][t]+"px";e[r].style.height=i}}}))}();
 </script>
 <div class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#save both DataFrames as csv</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>desintation_counts_df.to_csv(<span class="st">"/Users/karinashedrofsky/LEDE_2023/flights-project/csvs/destination_counts.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#save both DataFrames as csv</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>desintation_counts_df.to_csv(<span class="st">"/Users/karinashedrofsky/LEDE_2023/flights-project/csvs/destination_counts.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"/Users/karinashedrofsky/LEDE_2023/flights-project/csvs/icarus_flights_cleaned.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">"/Users/karinashedrofsky/LEDE_2023/flights-project/csvs/icarus_flights_cleaned.csv"</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
