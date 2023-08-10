@@ -12,7 +12,7 @@ format:
     theme: lux
 
 website:
-  title: "Enriching ADSB Flight Data"
+  title: "Enriching ADS-B Flight Data"
   sidebar:
     style: "docked"
     contents:
